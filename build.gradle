@@ -1,0 +1,37 @@
+plugins {
+    id "application"
+}
+
+group = 'me.jartreg'
+version = '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+        java.srcDirs = ['src']
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = '1.10'
+mainClassName = 'me.jartreg.drawingapplication.Main'
+
+jar {
+    manifest {
+        attributes (
+                'Main-Class': mainClassName
+        )
+    }
+}
+
+javadoc {
+    options.addBooleanOption('html5', true)
+}
+
+task distributionJar(type: Copy) {
+    from jar.outputs
+    into "$buildDir/distributions"
+
+    rename {
+        "${project.name}.jar"
+    }
+}
