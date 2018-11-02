@@ -39,5 +39,7 @@
  *         Dieses Paket enthält alle Werkzeuge, die zum Malen benutzt werden können.
  *     </dd>
  * </dl>
+ *
+ * @see me.jartreg.drawingapplication.MainWindow
  */
 package me.jartreg.drawingapplication;
