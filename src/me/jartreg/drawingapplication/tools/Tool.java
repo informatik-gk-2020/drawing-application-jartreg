@@ -29,7 +29,7 @@ import java.awt.event.MouseMotionListener;
  *
  * <p>
  *     Sollte ein Werkzeug eine Vorschau zeichnen wollen, die nicht in dem Bild gespeichert werden soll, so kann es die
- *     Methode {@link #drawPreview(Graphics2D)} überschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint()} aufrufen,
+ *     Methode {@link #drawPreview(Graphics2D)} überschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()} aufrufen,
  *     wenn es eine neue Vorschau zeichnen möchte.
  * </p>
  */
