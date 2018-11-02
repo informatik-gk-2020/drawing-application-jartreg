@@ -278,6 +278,11 @@ public class MainWindow extends JFrame {
             var oldValue = this.selectedTool;
             this.selectedTool = selectedTool;
 
+            // Den Tools mitteilen, ob sie ausgewählt sind
+            if (oldValue != null)
+                oldValue.setSelected(false);
+            selectedTool.setSelected(true);
+
             // Benachrichtigen, dass sich das Werkzeug geändert hat
             firePropertyChange(SELECTED_TOOL_PROPERTY, oldValue, selectedTool);
         }

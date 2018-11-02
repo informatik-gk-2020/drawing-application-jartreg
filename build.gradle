@@ -24,14 +24,27 @@ jar {
 }
 
 javadoc {
+    options.encoding = 'UTF-8'
     options.addBooleanOption('html5', true)
 }
 
 task distributionJar(type: Copy) {
     from jar.outputs
-    into "$buildDir/distributions"
+    into "$buildDir/dist"
 
     rename {
-        "${project.name}.jar"
+        "malprogramm.jar"
     }
+}
+
+task javadocZip(type: Zip) {
+    archiveName = "malprogramm-${project.version}-javadoc.zip"
+    destinationDir = file("${buildDir}/dist")
+
+    from javadoc
+}
+
+task distributionArtifacts {
+    dependsOn distributionJar
+    dependsOn javadocZip
 }

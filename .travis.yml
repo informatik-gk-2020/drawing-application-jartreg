@@ -1,0 +1,39 @@
+language: java
+branches:
+  only:
+  - master
+
+jdk:
+- openjdk10
+
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+
+jobs:
+  include:
+  - name: deploy javadoc
+    stage: deploy
+    if: branch = master
+    script: "./gradlew javadoc"
+    deploy:
+      provider: pages
+      github-token: $GITHUB_TOKEN
+      skip-cleanup: true
+      local-dir: "build/docs/javadoc"
+  - name: deploy release
+    stage: deploy
+    if: (branch = master) AND (tag IS present)
+    script: "./gradlew distributionArtifacts"
+    deploy:
+      provider: releases
+      api_key: $GITHUB_TOKEN
+      draft: true
+      skip_cleanup: true
+      file_glob: true
+      file:
+        - "build/dist/*"
