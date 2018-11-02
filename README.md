@@ -4,6 +4,10 @@
 
 Ein einfaches Malprogramm
 
+## Download
+
+Das fertige Programm und ein Zip-Archiv mit der Dokumentation kann unter den [Releases](https://github.com/informatik-gk-2020/malprogramm-j/releases) heruntergeladen werden.
+
 ## Dokumentation
 
 Die Dokumentation wird automatisch als Javadoc generiert und auf [GitHub Pages](https://informatik-gk-2020.github.io/malprogramm-j/) hochgeladen.
