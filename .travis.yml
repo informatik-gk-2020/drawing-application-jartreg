@@ -24,4 +24,16 @@ jobs:
       provider: pages
       github-token: $GITHUB_TOKEN
       skip-cleanup: true
-      local-dir: build/docs/javadoc
+      local-dir: "build/docs/javadoc"
+  - name: deploy release
+    stage: deploy
+    if: (branch = master) AND (tag IS present)
+    script: "./gradlew distributionArtifacts"
+    deploy:
+      provider: releases
+      api_key: $GITHUB_TOKEN
+      draft: true
+      skip_cleanup: true
+      file_glob: true
+      file:
+        - "build/dist/*"
