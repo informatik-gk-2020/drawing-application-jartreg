@@ -20,8 +20,19 @@ import java.io.File;
  * Das Hauptfenster der Anwendung
  */
 public class MainWindow extends JFrame {
+    /**
+     * Name der Eigenschaft für das aktuelle Werkzeug. Wird für Einenschaftsänderungsereignisse verwendet.
+     */
     public static final String SELECTED_TOOL_PROPERTY = "selectedTool";
+
+    /**
+     * Name der Eigenschaft für die Leinwand. Wird für Einenschaftsänderungsereignisse verwendet.
+     */
     public static final String CANVAS_PROPRETY = "canvas";
+
+    /**
+     * Name der Eigenschaft für die aktuelle Datei. Wird für Einenschaftsänderungsereignisse verwendet.
+     */
     public static final String FILE_PROPERTY = "file";
 
     /**
@@ -221,6 +232,7 @@ public class MainWindow extends JFrame {
      * <p>
      * Die Methode wird überschrieben, um den Benutzer beim schließen des Fensters zu fragen, ob er das Bild speicher will
      * </p>
+     *
      * @param e das Ereignis
      */
     @Override

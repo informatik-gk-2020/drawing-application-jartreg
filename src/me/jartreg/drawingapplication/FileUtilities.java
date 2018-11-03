@@ -48,6 +48,7 @@ public final class FileUtilities {
 
     /**
      * Öffnet ein Bild aus einer Datei
+     *
      * @param file die Datei
      * @return das Bild
      */
@@ -75,6 +76,7 @@ public final class FileUtilities {
 
     /**
      * Zeigt einen "Speichern"-Dialog an
+     *
      * @param parent das Fenster, über dem der Dialog angezeugt werden soll
      * @return die ausgewählte Datei oder <code>null</code>
      */
@@ -100,6 +102,7 @@ public final class FileUtilities {
 
     /**
      * Zeigt einen "Öffnen"-Dialog an
+     *
      * @param parent das Fenster, über dem der Dialog angezeugt werden soll
      * @return die ausgewählte Datei oder <code>null</code>
      */

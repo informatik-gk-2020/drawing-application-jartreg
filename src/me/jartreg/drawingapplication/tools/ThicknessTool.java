@@ -6,12 +6,14 @@ package me.jartreg.drawingapplication.tools;
 public interface ThicknessTool {
     /**
      * Gibt die Breite des Tool zurück
+     *
      * @return die Breite des Tools
      */
     float getThickness();
 
     /**
      * Legt die Breite des Tools fest
+     *
      * @param value die neue Breite des Tools
      */
     void setThickness(float value);
