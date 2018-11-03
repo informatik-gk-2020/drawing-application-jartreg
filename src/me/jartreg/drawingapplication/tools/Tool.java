@@ -30,8 +30,21 @@ import java.awt.event.MouseMotionListener;
  * <p>
  * Sollte ein Werkzeug eine Vorschau zeichnen wollen, die nicht in dem Bild gespeichert werden soll, so kann es die
  * Methode {@link #drawPreview(Graphics2D)} überschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()} aufrufen,
- * wenn es eine neue Vorschau zeichnen möchte.
+ * wenn es eine neue Vorschau zeichnen möchte. Als Hilfe kann von der Klasse {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}
+ * geerbt werden.
  * </p>
+ *
+ * <p>
+ * Einfache Werkzeuge, die direkt auf das Bild zeichnen, können von der Klasse {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool} erben.
+ * </p>
+ *
+ * <p>
+ * <strong>Wichtig:</strong> wenn ein Werkzeug den Inhalt des Bildes geändert hat, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
+ * aufgrufen werden, damit der neue Inhalt des Bildes in das Fenster gezeichnet wird.
+ * </p>
+ *
+ * @see me.jartreg.drawingapplication.tools.preview.PreviewTool
+ * @see me.jartreg.drawingapplication.tools.drawing.DrawingTool
  */
 public abstract class Tool implements MouseListener, MouseMotionListener {
     /**
@@ -149,7 +162,13 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Kann überschrieben werden, umm eine Vorschau zu zeichnen
+     * Zeichnet die Vorschau in das Fenster
+     *
+     * <p>
+     * Diese Methode wird aufgerufen, um es Werkzeugen zu ermöglichen, eine Vorschau zu zeigen, ohne direkt auf das Bild zu zeichnen.
+     * Damit eine neue Vorschau gezeichnet wird, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
+     * aufgerufen werden.
+     * </p>
      *
      * @param g das {@link Graphics2D}-Objekt
      */
