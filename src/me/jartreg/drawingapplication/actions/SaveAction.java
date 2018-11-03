@@ -33,6 +33,6 @@ public class SaveAction extends FileAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        getWindow().save(); // speichern
+        getWindow().save(false); // speichern
     }
 }

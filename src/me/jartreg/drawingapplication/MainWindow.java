@@ -250,7 +250,7 @@ public class MainWindow extends JFrame {
                 );
 
                 if (result == JOptionPane.YES_OPTION) { // Der Benutzer will speichern
-                    if (!save()) { // speichern
+                    if (!save(false)) { // speichern
                         return; // wenn das Bild nicht gespeichert werden konnte, wird nichts gemacht
                     }
                 } else if (result != JOptionPane.NO_OPTION) {
@@ -383,24 +383,6 @@ public class MainWindow extends JFrame {
         }
 
         return false;
-    }
-
-    /**
-     * Zeigt den "Speichern unter"-Dialog an und speichert das Bild in dieser Datei
-     *
-     * @return ob das Speichern erfolgreich war
-     */
-    public boolean saveAs() {
-        return save(true);
-    }
-
-    /**
-     * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen
-     *
-     * @return ob das Speichern erfolgreich war
-     */
-    public boolean save() {
-        return save(false);
     }
 
     /**
