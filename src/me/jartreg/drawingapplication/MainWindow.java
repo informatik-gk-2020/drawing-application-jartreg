@@ -21,12 +21,12 @@ import java.io.File;
  */
 public class MainWindow extends JFrame {
     /**
-     * Name der Eigenschaft fÃ¼r das aktuelle Werkzeug. Wird fÃ¼r EinenschaftsÃ¤nderungsereignisse verwendet.
+     * Name der Eigenschaft für das aktuelle Werkzeug. Wird für Einenschaftsänderungsereignisse verwendet.
      */
     public static final String SELECTED_TOOL_PROPERTY = "selectedTool";
 
     /**
-     * Name der Eigenschaft fÃ¼r die Leinwand. Wird fÃ¼r EinenschaftsÃ¤nderungsereignisse verwendet.
+     * Name der Eigenschaft für die Leinwand. Wird für Einenschaftsänderungsereignisse verwendet.
      */
     public static final String CANVAS_PROPRETY = "canvas";
 
@@ -37,7 +37,7 @@ public class MainWindow extends JFrame {
     private File file;
 
     /**
-     * Ob das Bild seit dem letzten Speichern geÃ¤ndert wurde
+     * Ob das Bild seit dem letzten Speichern geändert wurde
      */
     private boolean modified = false;
 
@@ -47,18 +47,18 @@ public class MainWindow extends JFrame {
     private DrawingCanvas canvas;
 
     /**
-     * Die Komponente, die die Leinwand enthÃ¤lt
-     * wird benÃ¶tigt, damit die Leinwand immer zentriert ist und ausgetauscht werden kann
+     * Die Komponente, die die Leinwand enthält
+     * wird benötigt, damit die Leinwand immer zentriert ist und ausgetauscht werden kann
      */
     private final JComponent canvasContainer;
 
     /**
-     * Die Komponente, die den gesamten Inhalt des Fensters enthÃ¤lt
+     * Die Komponente, die den gesamten Inhalt des Fensters enthält
      */
     private final JComponent contentPanel;
 
     /**
-     * Alle zur VerfÃ¼gung stehenden Werkzeuge
+     * Alle zur Verfügung stehenden Werkzeuge
      */
     private final Tool[] tools = {
             new PenTool(),
@@ -77,44 +77,44 @@ public class MainWindow extends JFrame {
      */
     public MainWindow() {
         super("Malprogramm"); // Den Titel des Fensters zu Beginn festlegen
-        setMinimumSize(new Dimension(600, 400)); // Die MindestgrÃ¶ÃŸe
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE); // Beim drÃ¼cken auf den SchlieÃŸen-Knopf soll das Fenster geschlossen werden
+        setMinimumSize(new Dimension(600, 400)); // Die Mindestgröße
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE); // Beim drücken auf den Schließen-Knopf soll das Fenster geschlossen werden
 
         // Den Inhalt des Fensters erstellen
         canvasContainer = new JPanel(new GridBagLayout());
         contentPanel = buildContentPanel(canvasContainer); // den Inhalt erstellen
-        buildLayout(contentPanel); // zum Fenster hinzufÃ¼gen
-        pack(); // die GrÃ¶ÃŸe des Fensters an den Inhalt anpassen
+        buildLayout(contentPanel); // zum Fenster hinzufügen
+        pack(); // die Größe des Fensters an den Inhalt anpassen
 
-        setSelectedTool(tools[0]); // das erste Werkzeug im Array auswÃ¤hlen
+        setSelectedTool(tools[0]); // das erste Werkzeug im Array auswählen
     }
 
     /**
-     * FÃ¼gt den Fensterinhalt und das MenÃ¼ zum Fenster hinzu und legt ihr Layout fest
+     * Fügt den Fensterinhalt und das Menü zum Fenster hinzu und legt ihr Layout fest
      *
-     * @param contentPanel die Komponente, die den Inhalt enthÃ¤lt
+     * @param contentPanel die Komponente, die den Inhalt enthält
      */
     private void buildLayout(JComponent contentPanel) {
-        // eine neue Komponente, die das MenÃ¼ und den Inhalt enthalten wird
+        // eine neue Komponente, die das Menü und den Inhalt enthalten wird
         JPanel rootPanel = new JPanel(new BorderLayout());
-        getContentPane().add(rootPanel); // zum Fenster hinzufÃ¼gen
+        getContentPane().add(rootPanel); // zum Fenster hinzufügen
 
-        // Das MenÃ¼
+        // Das Menü
         JMenuBar menuBar = new JMenuBar();
-        buildMenu(menuBar); // die MenÃ¼eintrÃ¤ge hinzufÃ¼gen
+        buildMenu(menuBar); // die Menüeinträge hinzufügen
 
-        // MenÃ¼leiste und Inhalt hinzufÃ¼gen
+        // Menüleiste und Inhalt hinzufügen
         rootPanel.add(menuBar, BorderLayout.PAGE_START);
         rootPanel.add(contentPanel, BorderLayout.CENTER);
     }
 
     /**
-     * FÃ¼gt die MenÃ¼eintrÃ¤ge zum MenÃ¼ hinzu
+     * Fügt die Menüeinträge zum Menü hinzu
      *
-     * @param menuBar das MenÃ¼, zu dem die MenÃ¼eintrÃ¤ge hinzugefÃ¼gt werden sollen
+     * @param menuBar das Menü, zu dem die Menüeinträge hinzugefügt werden sollen
      */
     private void buildMenu(JMenuBar menuBar) {
-        // Das MenÃ¼ "Datei"
+        // Das Menü "Datei"
         JMenu fileMenu = new JMenu("Datei");
         fileMenu.add(new NewAction(this));
         fileMenu.add(new OpenAction(this));
@@ -123,34 +123,34 @@ public class MainWindow extends JFrame {
         fileMenu.add(new SaveAsAction(this));
         fileMenu.addSeparator();
         fileMenu.add(new CloseAction(this));
-        menuBar.add(fileMenu); // "Datei" zum MenÃ¼ hinzufÃ¼gen
+        menuBar.add(fileMenu); // "Datei" zum Menü hinzufügen
 
-        // Das MenÃ¼ "Ansicht"
+        // Das Menü "Ansicht"
         JMenu viewMenu = new JMenu("Ansicht");
-        JMenu lafMenu = new JMenu("Aussehen"); // Das UntermenÃ¼ "Ansicht"/"Aussehen"
-        viewMenu.add(lafMenu); // "Aussehen" zu "Ansicht hinzufÃ¼gen"
+        JMenu lafMenu = new JMenu("Aussehen"); // Das Untermenü "Ansicht"/"Aussehen"
+        viewMenu.add(lafMenu); // "Aussehen" zu "Ansicht hinzufügen"
 
-        // FÃ¼r jedes Aussehen einen neuen MenÃ¼eintrag hinzufÃ¼gen
+        // Für jedes Aussehen einen neuen Menüeintrag hinzufügen
         for (UIManager.LookAndFeelInfo lookAndFeel : UIManager.getInstalledLookAndFeels()) {
             lafMenu.add(new LookAndFeelMenuItem(lookAndFeel));
         }
 
-        menuBar.add(viewMenu); // "Ansicht" zum MenÃ¼ hinzufÃ¼gen
+        menuBar.add(viewMenu); // "Ansicht" zum Menü hinzufügen
     }
 
     /**
      * Erstellt den Inhalt des Fensters
      *
      * @param canvasContainer die Komponente, die die leinwand enthalten wird
-     * @return die komponente, die den Inhalt des Fensters enthÃ¤lt
+     * @return die komponente, die den Inhalt des Fensters enthält
      */
     private JComponent buildContentPanel(JComponent canvasContainer) {
         JPanel contentPanel = new JPanel(new BorderLayout()); // die Komponente erstellen
 
-        // Hauptwerkzeugleiste erstellen und hinzufÃ¼gen (oben)
+        // Hauptwerkzeugleiste erstellen und hinzufügen (oben)
         contentPanel.add(buildMainToolBar(), BorderLayout.PAGE_START);
 
-        // Eigenschaftswerkzeugleiste erstellen und hinzufÃ¼gen (unten)
+        // Eigenschaftswerkzeugleiste erstellen und hinzufügen (unten)
         contentPanel.add(buildPropertiesToolBar(), BorderLayout.PAGE_END);
 
         // Eine Scrollkomponente, damit die Leinwand gescrollt werden kann, wenn das Fenster kleiner ist
@@ -159,7 +159,7 @@ public class MainWindow extends JFrame {
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
         );
-        contentPanel.add(canvasScroller, BorderLayout.CENTER); // in der Mitte hinzufÃ¼gen
+        contentPanel.add(canvasScroller, BorderLayout.CENTER); // in der Mitte hinzufügen
 
         return contentPanel;
     }
@@ -174,7 +174,7 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         toolBar.setName("Werkzeuge");
 
-        // FÃ¼r jedes Werkzeug einen Eintrag hinzufÃ¼gen
+        // Für jedes Werkzeug einen Eintrag hinzufügen
         for (Tool tool : tools) {
             toolBar.add(new ToolSelectionButton(this, tool));
         }
@@ -192,17 +192,17 @@ public class MainWindow extends JFrame {
         JToolBar toolBar = new JToolBar();
         toolBar.setName("Eigenschaften");
 
-        // Knopf zum AuswÃ¤hlen der Farbe
+        // Knopf zum Auswählen der Farbe
         toolBar.add(new ColorSelectionButton(this));
         toolBar.addSeparator(); // Trennlinie
 
-        // Der Slider fÃ¼r die Breite
-        // Der SLider soll links neben sich einen Text "Breite:" haben, wofÃ¼r eine weitere Komponente notwendig ist
+        // Der Slider für die Breite
+        // Der SLider soll links neben sich einen Text "Breite:" haben, wofür eine weitere Komponente notwendig ist
         // Ein Panel mit einem horizontalen Abstand von 8 Pixeln zwischen den Komponenten
         JPanel sliderPanel = new JPanel(new BorderLayout(8, 0));
-        sliderPanel.add(new ThicknessSlider(this)); // Slider hinzufÃ¼gen
-        sliderPanel.add(new JLabel("Breite:"), BorderLayout.LINE_START); // Text links hinzufÃ¼gen
-        toolBar.add(sliderPanel); // zur Werkzeugleiste hinzufÃ¼gen
+        sliderPanel.add(new ThicknessSlider(this)); // Slider hinzufügen
+        sliderPanel.add(new JLabel("Breite:"), BorderLayout.LINE_START); // Text links hinzufügen
+        toolBar.add(sliderPanel); // zur Werkzeugleiste hinzufügen
 
         return toolBar;
     }
@@ -210,14 +210,14 @@ public class MainWindow extends JFrame {
     /**
      * Erneuert den Titel des Fensters
      * <p>
-     * Die Methode wird aufgerufen, wenn sich der Name der Datei geÃ¤ndert hat, das Bild ungespeicherte Ã„nderungen enthÃ¤lt
+     * Die Methode wird aufgerufen, wenn sich der Name der Datei geändert hat, das Bild ungespeicherte Änderungen enthält
      * oder gespeichert wurde
      * </p>
      */
     private void updateTitle() {
         setTitle(
                 (file == null ? "Unbenannt" : file.getName()) // Name der Datei
-                        + (isModified() ? "*" : "") // "*" wenn das Bild nicht gespeicherte Ã„nderungen enthÃ¤lt
+                        + (isModified() ? "*" : "") // "*" wenn das Bild nicht gespeicherte Änderungen enthält
                         + " - Malprogramm" // Der Name der Anwendung
         );
     }
@@ -225,25 +225,25 @@ public class MainWindow extends JFrame {
     /**
      * Bearbeitet ereignisse, die an das Fenster gesendet werden
      * <p>
-     * Die Methode wird Ã¼berschrieben, um den Benutzer beim schlieÃŸen des Fensters zu fragen, ob er das Bild speicher will
+     * Die Methode wird überschrieben, um den Benutzer beim schließen des Fensters zu fragen, ob er das Bild speicher will
      * </p>
      *
      * @param e das Ereignis
      */
     @Override
     protected void processWindowEvent(WindowEvent e) {
-        // WINDOW_CLOSING wird ausgelÃ¶st, wenn suf den SChlieÃŸen-Knopf geklickt wurde
+        // WINDOW_CLOSING wird ausgelöst, wenn suf den SChließen-Knopf geklickt wurde
         if (e.getID() == WindowEvent.WINDOW_CLOSING) {
-            if (!isEnabled()) { // Wenn das Fenster gerade keine Eingabe zulÃ¤sst, wird es ignoriert
+            if (!isEnabled()) { // Wenn das Fenster gerade keine Eingabe zulässt, wird es ignoriert
                 return;
             }
 
-            // Wenn im Fenster ein Bild vorhanden ist und es nicht gespeicherte Ã„nderungen enthÃ¤lt
+            // Wenn im Fenster ein Bild vorhanden ist und es nicht gespeicherte Änderungen enthält
             if (canvas != null && isModified()) {
                 // Benutzer fragen
                 int result = JOptionPane.showConfirmDialog(
                         this,
-                        "Soll die Datei vor dem SchlieÃŸen gespeichert werden?",
+                        "Soll die Datei vor dem Schließen gespeichert werden?",
                         "Malprogramm",
                         JOptionPane.YES_NO_CANCEL_OPTION,
                         JOptionPane.QUESTION_MESSAGE
@@ -267,36 +267,36 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Gibt das aktuell ausgewÃ¤hlte Werkzeug zurÃ¼ck
+     * Gibt das aktuell ausgewählte Werkzeug zurück
      *
-     * @return das aktuell ausgewÃ¤hlte Werkzeug
+     * @return das aktuell ausgewählte Werkzeug
      */
     public Tool getSelectedTool() {
         return selectedTool;
     }
 
     /**
-     * Setzt das aktuell ausgewÃ¤hlte Werkzeug
+     * Setzt das aktuell ausgewählte Werkzeug
      *
-     * @param selectedTool das Werkzeug, welches das neue ausgewÃ¤hlte Werkzeug sein soll
+     * @param selectedTool das Werkzeug, welches das neue ausgewählte Werkzeug sein soll
      */
     public void setSelectedTool(Tool selectedTool) {
         if (this.selectedTool != selectedTool) { // nichts machen, wenn es das gleiche ist
             Tool oldValue = this.selectedTool;
             this.selectedTool = selectedTool;
 
-            // Den Tools mitteilen, ob sie ausgewÃ¤hlt sind
+            // Den Tools mitteilen, ob sie ausgewählt sind
             if (oldValue != null)
                 oldValue.setSelected(false);
             selectedTool.setSelected(true);
 
-            // Benachrichtigen, dass sich das Werkzeug geÃ¤ndert hat
+            // Benachrichtigen, dass sich das Werkzeug geändert hat
             firePropertyChange(SELECTED_TOOL_PROPERTY, oldValue, selectedTool);
         }
     }
 
     /**
-     * Gibt die Leinwand zurÃ¼ck
+     * Gibt die Leinwand zurück
      *
      * @return die Leinwand
      */
@@ -318,15 +318,15 @@ public class MainWindow extends JFrame {
         this.canvas = canvas;
         canvasContainer.add(canvas); // Leinwand im Fenster anzeigen
 
-        // Benachrichtigen, dass sich die Leinwand geÃ¤ndert hat
+        // Benachrichtigen, dass sich die Leinwand geändert hat
         firePropertyChange(CANVAS_PROPRETY, null, canvas);
 
         updateTitle(); // Titel aktualisieren
-        pack(); // GrÃ¶ÃŸe des Fenster an seinen neuen Inhalt anpassen
+        pack(); // Größe des Fenster an seinen neuen Inhalt anpassen
     }
 
     /**
-     * Gibt die Datei zurÃ¼ck
+     * Gibt die Datei zurück
      *
      * @return die Datei oder <code>null</code>, wenn das Bild neu ist und noch nicht gespeichert wurde
      */
@@ -346,18 +346,18 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Gibt zurÃ¼ck, ob das Bild ungespeicherte Ã„nderungen enthÃ¤lt
+     * Gibt zurück, ob das Bild ungespeicherte Änderungen enthält
      *
-     * @return <code>true</code>, wenn das Bild ungespeicherte Ã„nderungen enthÃ¤lt
+     * @return <code>true</code>, wenn das Bild ungespeicherte Änderungen enthält
      */
     public boolean isModified() {
         return modified;
     }
 
     /**
-     * Legt fest, ob das Bild ungespeicherte Ã„nderungen enthÃ¤lt
+     * Legt fest, ob das Bild ungespeicherte Änderungen enthält
      *
-     * @param modified <code>true</code>, wenn das Bild ungespeicherte Ã„nderungen enthÃ¤lt
+     * @param modified <code>true</code>, wenn das Bild ungespeicherte Änderungen enthält
      */
     public void setModified(boolean modified) {
         this.modified = modified;
@@ -365,7 +365,7 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Speichert das Bild und lÃ¤sst den Benutzer, sollte noch keine Datei ausgewÃ¤hlt worden sein, eine Datei auswÃ¤hlen.
+     * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen.
      *
      * @param forceDialog erzwingt das Anzeigen eines Speichern-Dialogs
      * @return ob das Speichern erfolgreich war
@@ -373,13 +373,13 @@ public class MainWindow extends JFrame {
     public boolean save(boolean forceDialog) {
         File file = getFile();
 
-        // Datei auswÃ¤hlen lassen wenn noch keine ausgewÃ¤hlt ist oder forceDialog true ist
+        // Datei auswählen lassen wenn noch keine ausgewählt ist oder forceDialog true ist
         if (forceDialog || file == null) {
             file = FileUtilities.showSaveDialog(this);
         }
 
-        if (file != null) { // wenn ausgewÃ¤hlt
-            setFile(file); // aktualisieren, falls eine andere ausgewÃ¤hlt wurde
+        if (file != null) { // wenn ausgewählt
+            setFile(file); // aktualisieren, falls eine andere ausgewählt wurde
             return save(file); // speichern
         }
 
@@ -393,9 +393,9 @@ public class MainWindow extends JFrame {
      * @return ob das Speichern erfolgreich war
      */
     private boolean save(File file) {
-        setEnabled(false); // kein SchlieÃŸen wÃ¤rend des Speicherns zulassen
+        setEnabled(false); // kein Schließen wärend des Speicherns zulassen
         boolean success = FileUtilities.save(getCanvas().getImage(), file); // Speichern
-        setEnabled(true); // SchlieÃŸen wieder zulassen
+        setEnabled(true); // Schließen wieder zulassen
 
         if (!success) { // Wenn nicht erfolgreich: Fehler anzeigen
             JOptionPane.showMessageDialog(
@@ -404,7 +404,7 @@ public class MainWindow extends JFrame {
                     "Malprogramm",
                     JOptionPane.ERROR_MESSAGE
             );
-        } else { // Wenn erfolgreich: das Bild enthÃ¤lt keine ungespeicherten Ã„nderungen mehr
+        } else { // Wenn erfolgreich: das Bild enthält keine ungespeicherten Änderungen mehr
             setModified(false);
         }
 

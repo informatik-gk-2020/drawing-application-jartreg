@@ -7,18 +7,18 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Basisklasse fÃ¼r direkt zeichnende Werkzeuge
+ * Basisklasse für direkt zeichnende Werkzeuge
  *
  * <p>
  * Da diese Werkzeuge immer auch eine Breite haben, implementiert diese Klasse {@link ThicknessTool}.
- * Die ausgewÃ¤hlte Breite wird automatisch auf das {@link Graphics2D}-Objekt angewendet.
+ * Die ausgewählte Breite wird automatisch auf das {@link Graphics2D}-Objekt angewendet.
  * </p>
  *
  * @see me.jartreg.drawingapplication.tools.ThicknessTool
  */
 public abstract class DrawingTool extends Tool implements ThicknessTool {
     /**
-     * Ob das Werkzeug gerade zeichnet (= Maustaste ist gedrÃ¼ckt)
+     * Ob das Werkzeug gerade zeichnet (= Maustaste ist gedrückt)
      */
     private boolean drawing = false;
 
@@ -59,7 +59,7 @@ public abstract class DrawingTool extends Tool implements ThicknessTool {
     public void setSelected(boolean selected) {
         super.setSelected(selected);
 
-        if (!selected) { // Wenn das Werkzeug abgewÃ¤hlt wurde, wird das zeichnen abgebrochen.
+        if (!selected) { // Wenn das Werkzeug abgewählt wurde, wird das zeichnen abgebrochen.
             drawing = false;
         }
     }
@@ -117,7 +117,7 @@ public abstract class DrawingTool extends Tool implements ThicknessTool {
      * Zeichnet eine Linie zwischen der letzten und der aktuellen Mausposition
      *
      * <p>
-     * Diese Methode kann Ã¼berschrieben werden, wenn etwas anderes als eine Linie gezeichnet werden soll.
+     * Diese Methode kann überschrieben werden, wenn etwas anderes als eine Linie gezeichnet werden soll.
      * </p>
      *
      * @param x1 der x-Wert der letzten Position der Maus

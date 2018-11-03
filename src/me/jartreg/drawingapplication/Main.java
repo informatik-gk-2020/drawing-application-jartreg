@@ -12,7 +12,7 @@ public class Main {
      * @param args die Kommandozeilenparameter
      */
     public static void main(String[] args) {
-        // Das Aussehen Ã¤ndern, damit die Anwendung wie der Rest des Systems aussieht
+        // Das Aussehen ändern, damit die Anwendung wie der Rest des Systems aussieht
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {

@@ -27,7 +27,7 @@ public class SaveAsAction extends FileAction {
     }
 
     /**
-     * Wird aufgerufen, wenn die Aktion ausgefÃ¼hrt wird
+     * Wird aufgerufen, wenn die Aktion ausgeführt wird
      *
      * @param e das Ereignis
      */

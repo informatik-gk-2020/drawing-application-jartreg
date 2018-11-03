@@ -8,11 +8,11 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Ein MenÃ¼eintrag, der ein {@link LookAndFeel Look and Feel} darstellt und es aktiviert, wenn darauf geklickt wird
+ * Ein Menüeintrag, der ein {@link LookAndFeel Look and Feel} darstellt und es aktiviert, wenn darauf geklickt wird
  */
 public class LookAndFeelMenuItem extends JRadioButtonMenuItem implements ActionListener, PropertyChangeListener {
     /**
-     * Die Informationen Ã¼ber den dargestellten Look and Feel
+     * Die Informationen über den dargestellten Look and Feel
      */
     private final UIManager.LookAndFeelInfo lookAndFeel;
 
@@ -26,11 +26,11 @@ public class LookAndFeelMenuItem extends JRadioButtonMenuItem implements ActionL
         this.lookAndFeel = lookAndFeel;
         updateState(); // Zustand aktualisieren
         addActionListener(this); // auf Klick achten
-        UIManager.addPropertyChangeListener(this); // darauf achten, wenn der aktuelle Look and Feel geÃ¤ndert wurde
+        UIManager.addPropertyChangeListener(this); // darauf achten, wenn der aktuelle Look and Feel geändert wurde
     }
 
     /**
-     * Wird aufgerufen, wenn auf den MenÃ¼eintrag geklickt wurde
+     * Wird aufgerufen, wenn auf den Menüeintrag geklickt wurde
      *
      * @param e das Ereignis
      */
@@ -40,7 +40,7 @@ public class LookAndFeelMenuItem extends JRadioButtonMenuItem implements ActionL
             // Versuchen den Look and Feel zu aktivieren
             UIManager.setLookAndFeel(lookAndFeel.getClassName());
 
-            // Allen Fenstern mitteilen, dass der Look and Feel geÃ¤ndert wurde
+            // Allen Fenstern mitteilen, dass der Look and Feel geändert wurde
             for (Window window : Window.getWindows()) {
                 SwingUtilities.updateComponentTreeUI(window);
             }
@@ -50,26 +50,26 @@ public class LookAndFeelMenuItem extends JRadioButtonMenuItem implements ActionL
     }
 
     /**
-     * Wird aufgerufen, wenn eine Eigenschaft des {@link UIManager}s geÃ¤ndert wurde
+     * Wird aufgerufen, wenn eine Eigenschaft des {@link UIManager}s geändert wurde
      *
      * <p>
-     * Hier wird die Methode dazu genutzt, um den Zustand des MenÃ¼eintrags zu Ã¤ndern, wenn der dargestellte Look and Feel
-     * ausgewÃ¤hlt wurde.
+     * Hier wird die Methode dazu genutzt, um den Zustand des Menüeintrags zu ändern, wenn der dargestellte Look and Feel
+     * ausgewählt wurde.
      * </p>
      *
      * @param evt das Ereignis
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // Wenn der aktuelle Look and Feel geÃ¤ndert wurde
+        // Wenn der aktuelle Look and Feel geändert wurde
         if (evt.getPropertyName().equals("lookAndFeel")) {
             updateState(); // Zustand aktualisieren
         }
     }
 
     /**
-     * Aktualisiert den Zustand des MenÃ¼eintrags.
-     * Dabei wird der MenÃ¼eintrag als ausgewÃ¤hlt markiert, wenn der dargestellte Look and Feel der aktuell ausgewÃ¤hlte ist.
+     * Aktualisiert den Zustand des Menüeintrags.
+     * Dabei wird der Menüeintrag als ausgewählt markiert, wenn der dargestellte Look and Feel der aktuell ausgewählte ist.
      */
     private void updateState() {
         setSelected(UIManager.getLookAndFeel().getClass().getName().equals(lookAndFeel.getClassName()));

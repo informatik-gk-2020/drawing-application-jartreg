@@ -10,7 +10,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Ein Knopf, der ein Werkzeug darstellt und das Werkzeug ausw√§hlt, wenn darauf geklickt wird
+ * Ein Knopf, der ein Werkzeug darstellt und das Werkzeug ausw‰hlt, wenn darauf geklickt wird
  */
 public class ToolSelectionButton extends JToggleButton implements PropertyChangeListener, ActionListener {
     /**
@@ -34,7 +34,7 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
         this.tool = tool;
         setText(tool.getName()); // Die Aufschrift des Knopfes ist der Name des Werkzeugs
 
-        // Darauf achten, wenn ein anderes Werkzeug ausgew√§hlt wird
+        // Darauf achten, wenn ein anderes Werkzeug ausgew‰hlt wird
         mainWindow.addPropertyChangeListener(MainWindow.SELECTED_TOOL_PROPERTY, this);
 
         // darauf achten, wenn auf den Knopf geklickt wird
@@ -42,10 +42,10 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
     }
 
     /**
-     * Wird aufgerufen, wenn eine Eigenschaft ge√§ndert wurde
+     * Wird aufgerufen, wenn eine Eigenschaft ge‰ndert wurde
      *
      * <p>
-     * Hier wird die Methode dazu genutzt um auf √Ñnderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
+     * Hier wird die Methode dazu genutzt um auf ƒnderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
      * </p>
      *
      * @param evt das Ereignis
@@ -53,10 +53,10 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // Wenn ein anderes Werkzeug ausgew√§hlt wurde
+        // Wenn ein anderes Werkzeug ausgew‰hlt wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
             Object newValue = evt.getNewValue();
-            setSelected(tool == newValue); // diesen Knopf als ausgew√§hlt markieren, wenn es das eigene Werkzeug ist
+            setSelected(tool == newValue); // diesen Knopf als ausgew‰hlt markieren, wenn es das eigene Werkzeug ist
         }
     }
 
@@ -67,6 +67,6 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        mainWindow.setSelectedTool(tool); // das eigene Werkzeug ausw√§hlen
+        mainWindow.setSelectedTool(tool); // das eigene Werkzeug ausw‰hlen
     }
 }

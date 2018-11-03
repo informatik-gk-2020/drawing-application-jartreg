@@ -3,7 +3,7 @@ package me.jartreg.drawingapplication.tools.preview.outline;
 import java.awt.*;
 
 /**
- * Das Werkzeug fÃ¼r Rechtecke
+ * Das Werkzeug für Rechtecke
  */
 public class RectangleTool extends OutlinePreviewTool {
     @Override

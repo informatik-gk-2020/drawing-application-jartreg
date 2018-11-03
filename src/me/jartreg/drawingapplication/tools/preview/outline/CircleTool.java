@@ -3,7 +3,7 @@ package me.jartreg.drawingapplication.tools.preview.outline;
 import java.awt.*;
 
 /**
- * Das Werzeug fÃ¼r Kreise/Ovale
+ * Das Werzeug für Kreise/Ovale
  */
 public class CircleTool extends OutlinePreviewTool {
     @Override

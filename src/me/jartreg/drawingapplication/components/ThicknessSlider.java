@@ -10,7 +10,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Der Breitenschieberegler, welcher benutzt wird, um die Breite des ausgewÃ¤hlten Werzeugs anzupassen
+ * Der Breitenschieberegler, welcher benutzt wird, um die Breite des ausgewählten Werzeugs anzupassen
  */
 public class ThicknessSlider extends JSlider implements PropertyChangeListener, ChangeListener {
     /**
@@ -19,9 +19,9 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
     private ThicknessTool tool = null;
 
     /**
-     * Erstellt einen neuen Breitenschieberegler, der die Breite des aktuellen Werkzeugs in <code>mainWindow</code> Ã¤ndern kann.
+     * Erstellt einen neuen Breitenschieberegler, der die Breite des aktuellen Werkzeugs in <code>mainWindow</code> ändern kann.
      *
-     * @param mainWindow das Hauptfenster, welches das Werkzeug enthÃ¤lt und benachrichtigt, wenn ein anderes Tool gewÃ¤hlt wurde
+     * @param mainWindow das Hauptfenster, welches das Werkzeug enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
      */
     public ThicknessSlider(MainWindow mainWindow) {
         super(1, 50); // Werte von 1 bis 50 zulassen
@@ -34,10 +34,10 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
     }
 
     /**
-     * Wird aufgerufen, wenn eine Eigenschaft geÃ¤ndert wurde
+     * Wird aufgerufen, wenn eine Eigenschaft geändert wurde
      *
      * <p>
-     * Hier wird die Methode dazu genutzt um auf Ã„nderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
+     * Hier wird die Methode dazu genutzt um auf Änderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
      * </p>
      *
      * @param evt das Ereignis
@@ -45,7 +45,7 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // Wenn das Werkzeug geÃ¤ndert wurde
+        // Wenn das Werkzeug geändert wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
             Object newValue = evt.getNewValue();
 
@@ -63,7 +63,7 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
     private void updateState(ThicknessTool tool) {
         this.tool = tool;
         setEnabled(tool != null); // aktivieren/deaktivieren
-        setValue(tool != null ? (int) tool.getThickness() : 0); // Wert vom Werkzeug Ã¼bernehmen
+        setValue(tool != null ? (int) tool.getThickness() : 0); // Wert vom Werkzeug übernehmen
     }
 
     /**
@@ -73,8 +73,8 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
      */
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (tool != null) { // wenn eine Auswahl mÃ¶glich ist
-            tool.setThickness(getValue()); // wird die neue Breite auf das Werkzeug Ã¼bertragen
+        if (tool != null) { // wenn eine Auswahl möglich ist
+            tool.setThickness(getValue()); // wird die neue Breite auf das Werkzeug übertragen
         }
     }
 }

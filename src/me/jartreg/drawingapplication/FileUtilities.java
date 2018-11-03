@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
 
 /**
- * Eine Hilfeklasse zum Speichern und √ñffnen von Bildern
+ * Eine Hilfeklasse zum Speichern und ÷ffnen von Bildern
  */
 public final class FileUtilities {
     private FileUtilities() {
@@ -26,10 +26,10 @@ public final class FileUtilities {
     public static boolean save(BufferedImage image, File file) {
         boolean[] result = new boolean[]{false}; // wird enthalten, ob erfolgreich gespeichert wurde
 
-        // Wird benutzt, um das Programm zu pausieren, w√§rend das Bild gespeichert wird
+        // Wird benutzt, um das Programm zu pausieren, w‰rend das Bild gespeichert wird
         SecondaryLoop eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
 
-        // Speichert das Bild in einem anderen Thread, damit die Anwendung nicht h√§ngt
+        // Speichert das Bild in einem anderen Thread, damit die Anwendung nicht h‰ngt
         ForkJoinPool.commonPool().execute(() -> {
             try {
                 ImageIO.write(image, "PNG", file); // speichern
@@ -47,7 +47,7 @@ public final class FileUtilities {
     }
 
     /**
-     * √ñffnet ein Bild aus einer Datei
+     * ÷ffnet ein Bild aus einer Datei
      *
      * @param file die Datei
      * @return das Bild
@@ -55,10 +55,10 @@ public final class FileUtilities {
     public static BufferedImage open(File file) {
         BufferedImage[] result = new BufferedImage[]{null}; // Wird das Bild enthalten
 
-        // Wird benutzt, um das Programm zu pausieren, w√§rend das Bild gelesen wird
+        // Wird benutzt, um das Programm zu pausieren, w‰rend das Bild gelesen wird
         SecondaryLoop eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
 
-        // √ñffnet das Bild in einem anderen Thread, damit die Anwendung nicht h√§ngt
+        // ÷ffnet das Bild in einem anderen Thread, damit die Anwendung nicht h‰ngt
         ForkJoinPool.commonPool().execute(() -> {
             try {
                 result[0] = ImageIO.read(file); // lesen
@@ -77,8 +77,8 @@ public final class FileUtilities {
     /**
      * Zeigt einen "Speichern"-Dialog an
      *
-     * @param parent das Fenster, √ºber dem der Dialog angezeugt werden soll
-     * @return die ausgew√§hlte Datei oder <code>null</code>
+     * @param parent das Fenster, ¸ber dem der Dialog angezeugt werden soll
+     * @return die ausgew‰hlte Datei oder <code>null</code>
      */
     public static File showSaveDialog(Frame parent) {
         JFileChooser fileChooser = new JFileChooser();
@@ -86,25 +86,25 @@ public final class FileUtilities {
         // Nur .png-Dateien werden zugelassen
         fileChooser.setFileFilter(new FileNameExtensionFilter("PNG-Dateien", "png"));
 
-        // Wenn der Nutzer best√§tigt hat...
+        // Wenn der Nutzer best‰tigt hat...
         if (fileChooser.showSaveDialog(parent) == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
 
-            // Wenn der Dateiname noch keine Endung enth√§lt, wird eine angef√ºgt
+            // Wenn der Dateiname noch keine Endung enth‰lt, wird eine angef¸gt
             if (!file.getName().toLowerCase().endsWith(".png"))
                 file = new File(file.getAbsolutePath() + ".png");
 
             return file;
         }
 
-        return null; // der Nutzer hat nicht best√§tigt
+        return null; // der Nutzer hat nicht best‰tigt
     }
 
     /**
-     * Zeigt einen "√ñffnen"-Dialog an
+     * Zeigt einen "÷ffnen"-Dialog an
      *
-     * @param parent das Fenster, √ºber dem der Dialog angezeugt werden soll
-     * @return die ausgew√§hlte Datei oder <code>null</code>
+     * @param parent das Fenster, ¸ber dem der Dialog angezeugt werden soll
+     * @return die ausgew‰hlte Datei oder <code>null</code>
      */
     public static File showOpenDialog(Frame parent) {
         JFileChooser fileChooser = new JFileChooser();
@@ -112,11 +112,11 @@ public final class FileUtilities {
         // Nur .png-Dateien werden zugelassen
         fileChooser.setFileFilter(new FileNameExtensionFilter("PNG-Dateien", "png"));
 
-        // Wenn der Nutzer best√§tigt hat...
+        // Wenn der Nutzer best‰tigt hat...
         if (fileChooser.showOpenDialog(parent) == JFileChooser.APPROVE_OPTION) {
             return fileChooser.getSelectedFile();
         }
 
-        return null; // der Nutzer hat nicht best√§tigt
+        return null; // der Nutzer hat nicht best‰tigt
     }
 }

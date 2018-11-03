@@ -14,7 +14,7 @@ import java.awt.event.InputEvent;
  *
  * <p>
  * Diese Aktion ertsellt eine neue Leinwand im aktuellen Fenster oder in einem neuen, wenn das aktuelle Fenster bereits
- * eine Leinwand enthÃ¤lt.
+ * eine Leinwand enthält.
  * </p>
  *
  * <p>
@@ -41,37 +41,37 @@ public class NewAction extends AbstractAction {
     }
 
     /**
-     * Wird aufgerufen, wenn die Aktion ausgefÃ¼hrt wird
+     * Wird aufgerufen, wenn die Aktion ausgeführt wird
      *
      * @param e das Ereignis
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Dieses Fenster oder ein neues, wenn das aktuelle bereits eine Leinwand enthÃ¤lt
+        // Dieses Fenster oder ein neues, wenn das aktuelle bereits eine Leinwand enthält
         MainWindow window = this.window.getCanvas() == null ? this.window : new MainWindow();
 
-        // nach der GrÃ¶ÃŸe fragen
+        // nach der Größe fragen
         Dimension size = showCreateNewDialog();
         if (size == null) {
             window.dispose();
-            // wenn der Benutzer den Dialog nicht bestÃ¤tigt hat oder die Werte nicht konvertiert werden konnten,
+            // wenn der Benutzer den Dialog nicht bestätigt hat oder die Werte nicht konvertiert werden konnten,
             // wird abgebrochen
             return;
         }
 
-        // Neue Leinvand erstellen und zum Fenster hinzufÃ¼gen
+        // Neue Leinvand erstellen und zum Fenster hinzufügen
         DrawingCanvas canvas = DrawingCanvas.createNew(window, size.width, size.height);
         window.setCanvas(canvas);
         window.setVisible(true); // Fenster anzeigen
     }
 
     /**
-     * Fragt den Benutzer nach der gewÃ¼nschten GrÃ¶ÃŸe des neuen Bildes
+     * Fragt den Benutzer nach der gewünschten Größe des neuen Bildes
      *
-     * @return die gewÃ¼nschte GrÃ¶ÃŸe
+     * @return die gewünschte Größe
      */
     private Dimension showCreateNewDialog() {
-        // Textfelder zum Eingeben der GrÃ¶ÃŸe
+        // Textfelder zum Eingeben der Größe
         NumberTextField widthText = new NumberTextField("600");
         NumberTextField heightText = new NumberTextField("400");
 
@@ -81,15 +81,15 @@ public class NewAction extends AbstractAction {
                 new Object[]{ // Inhalt des Dialogs untereinander
                         "Breite des Bildes (in Pixeln):",
                         widthText,
-                        "HÃ¶he des Bildes (in Pixeln):",
+                        "Höhe des Bildes (in Pixeln):",
                         heightText
                 },
                 "Neues Bild", // Titel des Dialogs
-                JOptionPane.OK_CANCEL_OPTION, // KnÃ¶pfe: OK und Abbrechen
+                JOptionPane.OK_CANCEL_OPTION, // Knöpfe: OK und Abbrechen
                 JOptionPane.QUESTION_MESSAGE // als Frage
         );
 
-        // nicht bestÃ¤tigt? -> abbrechen
+        // nicht bestätigt? -> abbrechen
         if (result != JOptionPane.OK_OPTION)
             return null;
 
@@ -108,7 +108,7 @@ public class NewAction extends AbstractAction {
             // Fehler anzeigen
             JOptionPane.showMessageDialog(
                     window,
-                    "Die grÃ¶ÃŸe des Bildes kann nicht 0 sein.",
+                    "Die größe des Bildes kann nicht 0 sein.",
                     "Neues Bild",
                     JOptionPane.ERROR_MESSAGE
             );
@@ -116,12 +116,12 @@ public class NewAction extends AbstractAction {
             return null; // abbrechen
         }
 
-        // GrÃ¶ÃŸe zurÃ¼ckgeben
+        // Größe zurückgeben
         return new Dimension(width, height);
     }
 
     /**
-     * Konvertiert einen Text in eine Zahl und zeigt eine Fehlermeldung, wenn dies nicht mÃ¶glich ist
+     * Konvertiert einen Text in eine Zahl und zeigt eine Fehlermeldung, wenn dies nicht möglich ist
      *
      * @param text der Text
      * @return die konvertierte Zahl
@@ -136,7 +136,7 @@ public class NewAction extends AbstractAction {
             // Fehlermeldung anzeigen
             JOptionPane.showMessageDialog(
                     window,
-                    "\"" + text + "\" ist keine gÃ¼ltige Zahl.",
+                    "\"" + text + "\" ist keine gültige Zahl.",
                     "Neues Bild",
                     JOptionPane.ERROR_MESSAGE
             );

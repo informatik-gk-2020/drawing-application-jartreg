@@ -5,16 +5,16 @@ import me.jartreg.drawingapplication.tools.preview.ColorPreviewTool;
 import java.awt.*;
 
 /**
- * Das Werkzeug fÃ¼r gefÃ¼llte Kreise
+ * Das Werkzeug für gefüllte Kreise
  */
 public class FilledCircleTool extends ColorPreviewTool {
     @Override
     public String getName() {
-        return "GefÃ¼llter Kreis";
+        return "Gefüllter Kreis";
     }
 
     /**
-     * Zeichnet einen gefÃ¼llten Kreis
+     * Zeichnet einen gefüllten Kreis
      *
      * @param g  das {@link Graphics2D}-Objekt
      * @param x1 der x-Wert der Startkoordinate

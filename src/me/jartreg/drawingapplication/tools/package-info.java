@@ -1,9 +1,9 @@
 /**
- * Dieses Paket enthÃ¤lt alle Werkzeuge, die zum Malen benutzt werden kÃ¶nnen.
+ * Dieses Paket enthält alle Werkzeuge, die zum Malen benutzt werden können.
  *
  * <p>
  * Die Klasse {@link me.jartreg.drawingapplication.tools.ColorTool ColorTool} ist die Basisklasse
- * fÃ¼r alle Werkzeuge.
+ * für alle Werkzeuge.
  * </p>
  *
  * <h3>Eigenschaften der Werkzeuge</h3>
@@ -12,7 +12,7 @@
  * {@link me.jartreg.drawingapplication.tools.ThicknessTool ThicknessTool} sind Interfaces, die Eigenschaften der Werkzeuge
  * wie die Farbe und die Breite darstellen. Implementiert eine Werkzeugklasse eines der Interfaces, so kann die Eigenschaft
  * mit den entsprechenden Steuerelementen angepasst werden. Implementiert eine Klasse eines der Interfaces nicht, so werden
- * die entsprechenden Steuerelemente deaktiviert, wenn das Werkzeug ausgewÃ¤hlt ist.
+ * die entsprechenden Steuerelemente deaktiviert, wenn das Werkzeug ausgewählt ist.
  * </p>
  *
  * <h2>Werkzeuge</h2>

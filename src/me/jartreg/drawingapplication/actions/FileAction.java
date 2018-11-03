@@ -7,10 +7,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Basisklasse fÃ¼r Aktionen, die nur aktiviert sind, wenn eine Leinwand vorhanden ist.
+ * Basisklasse für Aktionen, die nur aktiviert sind, wenn eine Leinwand vorhanden ist.
  *
  * <p>
- * Beispiele sind alle Aktionen, die etwas mit dem Speichern der Leinwand zu tun haben, da sie eine Leinand benÃ¶tigen.
+ * Beispiele sind alle Aktionen, die etwas mit dem Speichern der Leinwand zu tun haben, da sie eine Leinand benötigen.
  * </p>
  */
 public abstract class FileAction extends AbstractAction implements PropertyChangeListener {
@@ -29,13 +29,13 @@ public abstract class FileAction extends AbstractAction implements PropertyChang
         super(name); // Namen weitergeben
         this.window = window;
 
-        // darauf achten, wenn eine Leinwand zum Fenster hinzugefÃ¼gt wird
+        // darauf achten, wenn eine Leinwand zum Fenster hinzugefügt wird
         window.addPropertyChangeListener(this);
         setEnabled(window.getCanvas() != null); // aktivieren, wenn bereits eine vorhanden ist
     }
 
     /**
-     * Gibt das Hauptfenster zurÃ¼ck
+     * Gibt das Hauptfenster zurück
      *
      * @return das Hauptfenster
      */
@@ -44,10 +44,10 @@ public abstract class FileAction extends AbstractAction implements PropertyChang
     }
 
     /**
-     * Wird aufgerufen, wenn eine Eigenschaft geÃ¤ndert wurde
+     * Wird aufgerufen, wenn eine Eigenschaft geändert wurde
      *
      * <p>
-     * Hier wird die Methode dazu genutzt um darauf zu achten, wenn eine Leinwand zum Fenster hinzugefÃ¼gt wird.
+     * Hier wird die Methode dazu genutzt um darauf zu achten, wenn eine Leinwand zum Fenster hinzugefügt wird.
      * </p>
      *
      * @param evt das Ereignis
@@ -55,7 +55,7 @@ public abstract class FileAction extends AbstractAction implements PropertyChang
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // Wenn die Leinwand geÃ¤ndert wurde
+        // Wenn die Leinwand geändert wurde
         if (evt.getPropertyName() == MainWindow.CANVAS_PROPRETY) {
             setEnabled(evt.getNewValue() != null); // aktivieren, wenn eine Vorhanden ist
         }

@@ -6,11 +6,11 @@ import me.jartreg.drawingapplication.tools.preview.ColorPreviewTool;
 import java.awt.*;
 
 /**
- * Basisklasse fÃ¼r Vorschau-Werkzeuge, die ungefÃ¼llte Forman zeichnen und somit eine Breite als Eigenschaft haben
+ * Basisklasse für Vorschau-Werkzeuge, die ungefüllte Forman zeichnen und somit eine Breite als Eigenschaft haben
  *
  * <p>
- * Die ausgewÃ¤hlte Breite wird automatisch auf das {@link Graphics2D}-Objekt angewendet, sodass Unterklassen nichts machen mÃ¼ssen,
- * auÃŸer von dieser Klasse zu erben.
+ * Die ausgewählte Breite wird automatisch auf das {@link Graphics2D}-Objekt angewendet, sodass Unterklassen nichts machen müssen,
+ * außer von dieser Klasse zu erben.
  * </p>
  */
 public abstract class OutlinePreviewTool extends ColorPreviewTool implements ThicknessTool {
@@ -28,7 +28,7 @@ public abstract class OutlinePreviewTool extends ColorPreviewTool implements Thi
     public void setThickness(float thickness) {
         this.thickness = thickness;
 
-        // Da die Breite geÃ¤ndert wurde, muss die Einstellung auch auf das Graphics2D-Objekt Ã¼bernommen werden
+        // Da die Breite geändert wurde, muss die Einstellung auch auf das Graphics2D-Objekt übernommen werden
         updateGraphics();
     }
 

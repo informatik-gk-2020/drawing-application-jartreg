@@ -16,7 +16,7 @@ public class NumberTextField extends JTextField {
     }
 
     /**
-     * Wird aufgerufen, wenn der Inhalt geÃ¤ndert wird (d.h. neuer Text wurde eingegeben oder eine Auswahl ersetzt)
+     * Wird aufgerufen, wenn der Inhalt geändert wird (d.h. neuer Text wurde eingegeben oder eine Auswahl ersetzt)
      *
      * <p>
      * Hier wird die Eingabe gefiltert, um nur Nummern zuzulassen.
@@ -26,14 +26,14 @@ public class NumberTextField extends JTextField {
      */
     @Override
     public void replaceSelection(String content) {
-        // Wenn der Inhalt gelÃ¶scht wird, muss nichts gefiltert werden.
+        // Wenn der Inhalt gelöscht wird, muss nichts gefiltert werden.
         if (content == null || content.isEmpty()) {
             super.replaceSelection(content);
             return;
         }
 
         content = content.trim(); // Leerzeichen entfernen
-        for (char c : content.toCharArray()) { // Jedes Zeichen Ã¼berprÃ¼fen...
+        for (char c : content.toCharArray()) { // Jedes Zeichen überprüfen...
             if (!Character.isDigit(c)) // ...ob es eine Nummer ist...
                 return; // ...und abbrechen wenn nicht
         }

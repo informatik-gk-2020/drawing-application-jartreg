@@ -8,7 +8,7 @@ import java.awt.event.InputEvent;
 import java.awt.event.WindowEvent;
 
 /**
- * Die "Schlie√üen"-Aktion, welche das Fenster schlie√üt
+ * Die "Schlieﬂen"-Aktion, welche das Fenster schlieﬂt
  *
  * <p>
  * Tastenkombination: <kbd>Strg</kbd> + <kbd>W</kbd>
@@ -21,12 +21,12 @@ public class CloseAction extends AbstractAction {
     private final MainWindow window;
 
     /**
-     * Erstellt eine neue "Schlie√üen"-Aktion
+     * Erstellt eine neue "Schlieﬂen"-Aktion
      *
      * @param window das Hauptfenster
      */
     public CloseAction(MainWindow window) {
-        super("Schlie√üen");
+        super("Schlieﬂen");
         this.window = window;
 
         // Tastenkombination: Strg + W
@@ -34,14 +34,14 @@ public class CloseAction extends AbstractAction {
     }
 
     /**
-     * Wird aufgerufen, wenn die Aktion ausgef√ºhrt wird
+     * Wird aufgerufen, wenn die Aktion ausgef¸hrt wird
      *
      * @param e das Ereignis
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Das Fensterevent WINDOW_CLOSING ist das gleiche, welches ausgel√∂st wird,
-        // wenn auf den Schlie√üen-Knopf des Fensterrahmens geklickt wird
+        // Das Fensterevent WINDOW_CLOSING ist das gleiche, welches ausgelˆst wird,
+        // wenn auf den Schlieﬂen-Knopf des Fensterrahmens geklickt wird
         window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));
     }
 }

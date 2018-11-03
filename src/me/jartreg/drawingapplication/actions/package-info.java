@@ -1,4 +1,4 @@
 /**
- * Dieses Paket enthÃ¤lt Klassen, die die MenÃ¼eintrÃ¤ge reprÃ¤sentieren.
+ * Dieses Paket enthält Klassen, die die Menüeinträge repräsentieren.
  */
 package me.jartreg.drawingapplication.actions;

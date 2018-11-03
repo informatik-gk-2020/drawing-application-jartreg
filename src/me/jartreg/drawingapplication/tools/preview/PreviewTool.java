@@ -6,21 +6,21 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 /**
- * Basisklasse fÃ¼r alle Werkzeuge, die eine Vorschau anzeigen.
+ * Basisklasse für alle Werkzeuge, die eine Vorschau anzeigen.
  *
  * <p>
- * Diese Werkzeuge fangen beim DrÃ¼cken der Maustaste an, als Vorschau zu zeigen, was auf das Bild gezeichnet wÃ¼rde.
- * Sobald die Maustaste losgelassen wird, wird die Vorschau dann auch tatsÃ¤chlich auf die Leinwand gezeichnet
+ * Diese Werkzeuge fangen beim Drücken der Maustaste an, als Vorschau zu zeigen, was auf das Bild gezeichnet würde.
+ * Sobald die Maustaste losgelassen wird, wird die Vorschau dann auch tatsächlich auf die Leinwand gezeichnet
  * </p>
  *
  * <p>
- * Unterklassen mÃ¼ssen die Methode {@link #draw(Graphics2D, int, int, int, int)} Ã¼berschreiben, da sie zuerst
- * genutzt wird, um die Vorschau zu zeichnen und spÃ¤ter auch auf das Bild zeichnet.
+ * Unterklassen müssen die Methode {@link #draw(Graphics2D, int, int, int, int)} überschreiben, da sie zuerst
+ * genutzt wird, um die Vorschau zu zeichnen und später auch auf das Bild zeichnet.
  * </p>
  */
 public abstract class PreviewTool extends Tool {
     /**
-     * Ob das Werkzeug gerade zeichnet (= Maustaste ist gedrÃ¼ckt)
+     * Ob das Werkzeug gerade zeichnet (= Maustaste ist gedrückt)
      */
     private boolean drawing = false;
 
@@ -48,7 +48,7 @@ public abstract class PreviewTool extends Tool {
     public void setSelected(boolean selected) {
         super.setSelected(selected);
 
-        if (!selected) { // Wenn das Werkzeug abgewÃ¤hlt wurde, wird das zeichnen abgebrochen.
+        if (!selected) { // Wenn das Werkzeug abgewählt wurde, wird das zeichnen abgebrochen.
             drawing = false;
         }
     }
@@ -106,8 +106,8 @@ public abstract class PreviewTool extends Tool {
     public void drawPreview(Graphics2D g) {
         // wird zurzeit gezeichnet?
         if (drawing) {
-            // das {@link Graphics2D}-Objekt fÃ¼r die Vorschau muss die gleichen Eigenchaften haben
-            // wie das fÃ¼r das Bild
+            // das {@link Graphics2D}-Objekt für die Vorschau muss die gleichen Eigenchaften haben
+            // wie das für das Bild
             prepareGraphics(g);
 
             // Vorschau zeichnen

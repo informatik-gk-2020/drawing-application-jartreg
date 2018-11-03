@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 /**
- * Die Basisklasse fÃ¼r alle Werkzeuge
+ * Die Basisklasse für alle Werkzeuge
  *
  * <p>
  * Der Name eines Werkzeugs kann mit der Methode {@link #getName()} abgerufen werden.
@@ -16,33 +16,33 @@ import java.awt.event.MouseMotionListener;
  *
  * <p>
  * Diese Klasse implementiert die Interfaces {@link MouseListener} und {@link MouseMotionListener}, damit die Werkzeuge
- * alle Arten von Mausbewegungen abfangen kÃ¶nnen. Um ein Ereignis zu behandeln, muss die entsprechende Methode lediglich
- * in einer Unterklasse Ã¼berschrieben werden.
+ * alle Arten von Mausbewegungen abfangen können. Um ein Ereignis zu behandeln, muss die entsprechende Methode lediglich
+ * in einer Unterklasse überschrieben werden.
  * </p>
  *
  * <p>
- * Sobald ein Werkzeug ausgewÃ¤hlt wird, wird dem Werkzeug mit der Methode {@link #setGraphics(Graphics2D)} ein
- * {@link Graphics2D}-Objekt Ã¼bertragen, welches es mit {@link #getGraphics()} zum Zeichnen auf dem Bild nutzen kann. Zudem kann
+ * Sobald ein Werkzeug ausgewählt wird, wird dem Werkzeug mit der Methode {@link #setGraphics(Graphics2D)} ein
+ * {@link Graphics2D}-Objekt übertragen, welches es mit {@link #getGraphics()} zum Zeichnen auf dem Bild nutzen kann. Zudem kann
  * ein Werkzeug, wenn das {@link Graphics2D}-Objekt vorher bearbeitet werden soll, die Methode {@link #prepareGraphics(Graphics2D)}
- * Ã¼berschreiben.
+ * überschreiben.
  * </p>
  *
  * <p>
  * Sollte ein Werkzeug eine Vorschau zeichnen wollen, die nicht in dem Bild gespeichert werden soll, so kann es die
- * Methode {@link #drawPreview(Graphics2D)} Ã¼berschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()} aufrufen,
- * wenn es eine neue Vorschau zeichnen mÃ¶chte. Als Hilfe kann von der Klasse {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}
+ * Methode {@link #drawPreview(Graphics2D)} überschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()} aufrufen,
+ * wenn es eine neue Vorschau zeichnen möchte. Als Hilfe kann von der Klasse {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}
  * geerbt werden.
  * </p>
  *
  * <p>
- * Einfache Werkzeuge, die direkt auf das Bild zeichnen, kÃ¶nnen von der Klasse {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool} erben.
+ * Einfache Werkzeuge, die direkt auf das Bild zeichnen, können von der Klasse {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool} erben.
  * </p>
  *
  * <p>
- * <strong>Wichtig:</strong> wenn ein Werkzeug den Inhalt des Bildes geÃ¤ndert hat, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
+ * <strong>Wichtig:</strong> wenn ein Werkzeug den Inhalt des Bildes geändert hat, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
  * aufgrufen werden, damit der neue Inhalt des Bildes in das Fenster gezeichnet wird.
  * Zudem sollte {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#markModified() markModified()} aufgerufen werden,
- * um das Bild als geÃ¤ndert zu markieren.
+ * um das Bild als geändert zu markieren.
  * </p>
  *
  * @see me.jartreg.drawingapplication.tools.preview.PreviewTool
@@ -60,7 +60,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     private DrawingCanvas canvas = null;
 
     /**
-     * Ob das Tool ausgewÃ¤hlt ist
+     * Ob das Tool ausgewählt ist
      */
     private boolean selected = false;
 
@@ -69,31 +69,31 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
      * erneut aufgerufen.
      *
      * <p>
-     * Diese Methode wird benutzt, wenn sich einenEinstellung geÃ¤ndert hat, die auch auf das {@link Graphics2D}-Objekt
-     * Ã¼bertragen werden muss.
+     * Diese Methode wird benutzt, wenn sich einenEinstellung geändert hat, die auch auf das {@link Graphics2D}-Objekt
+     * übertragen werden muss.
      * </p>
      */
     protected void updateGraphics() {
         Graphics2D g = getGraphics();
         if (g != null) { // wenn vorhanden
-            prepareGraphics(g); // Einstellungen Ã¼bertragen
+            prepareGraphics(g); // Einstellungen übertragen
         }
     }
 
     /**
-     * Gibt den Namen des Werkzeugs zurÃ¼ck.
+     * Gibt den Namen des Werkzeugs zurück.
      *
      * @return der Name des Werkzeugs
      */
     public abstract String getName();
 
     /**
-     * Kann Ã¼berschrieben werden, um Einstellungen am {@link Graphics2D}-Objekt zu Ã¤ndern. Die Methode wird dann aufgerufen,
+     * Kann überschrieben werden, um Einstellungen am {@link Graphics2D}-Objekt zu ändern. Die Methode wird dann aufgerufen,
      * wenn das {@link Graphics2D}-Objekt neu eingestellt werden soll.
      *
      * <p>
-     * <strong>Achtung:</strong> beim Ãœberschreiben muss <em>immer</em> zuerst <code>super.prepareGraphics(graphics)</code>
-     * aufgerufen werden, damit alle Klassen in der Hierarchie ihre Einstellungen auf das {@link Graphics2D}-Objekt Ã¼bertragen kÃ¶nnen.
+     * <strong>Achtung:</strong> beim Überschreiben muss <em>immer</em> zuerst <code>super.prepareGraphics(graphics)</code>
+     * aufgerufen werden, damit alle Klassen in der Hierarchie ihre Einstellungen auf das {@link Graphics2D}-Objekt übertragen können.
      * </p>
      *
      * @param graphics das {@link Graphics2D}-Objekt
@@ -103,7 +103,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Gibt das {@link Graphics2D}-Objekt zurÃ¼ck, mit dem auf das Bild gezeichnet werden kann.
+     * Gibt das {@link Graphics2D}-Objekt zurück, mit dem auf das Bild gezeichnet werden kann.
      *
      * @return das {@link Graphics2D}-Objekt
      */
@@ -112,8 +112,8 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Legt das {@link Graphics2D}-Objekt fest. AuÃŸerdem wird {@link #prepareGraphics(Graphics2D)} aufgerufen, um Einstellungen
-     * auf das neue {@link Graphics2D}-Objekt zu Ã¼bertragen.
+     * Legt das {@link Graphics2D}-Objekt fest. Außerdem wird {@link #prepareGraphics(Graphics2D)} aufgerufen, um Einstellungen
+     * auf das neue {@link Graphics2D}-Objekt zu übertragen.
      *
      * @param graphics das neue {@link Graphics2D}-Objekt
      */
@@ -126,7 +126,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Gibt die Leinwand zurÃ¼ck
+     * Gibt die Leinwand zurück
      *
      * @return die Leinwand
      */
@@ -144,20 +144,20 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Gibt zurÃ¼ck, ob das Werkzeug ausgewÃ¤hlt ist.
+     * Gibt zurück, ob das Werkzeug ausgewählt ist.
      *
-     * @return ob das Werkzeug ausgewÃ¤hlt ist
+     * @return ob das Werkzeug ausgewählt ist
      */
     public boolean isSelected() {
         return selected;
     }
 
     /**
-     * Legt fest, ob das Werkzeug ausgewÃ¤hlt ist.
+     * Legt fest, ob das Werkzeug ausgewählt ist.
      *
      * <p>Diese Methode darf nur von {@link me.jartreg.drawingapplication.MainWindow} aufgerufen werden</p>
      *
-     * @param selected ob das Werkzeug ausgewÃ¤hl ist
+     * @param selected ob das Werkzeug ausgewähl ist
      */
     public void setSelected(boolean selected) {
         this.selected = selected;
@@ -167,7 +167,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
      * Zeichnet die Vorschau in das Fenster
      *
      * <p>
-     * Diese Methode wird aufgerufen, um es Werkzeugen zu ermÃ¶glichen, eine Vorschau zu zeigen, ohne direkt auf das Bild zu zeichnen.
+     * Diese Methode wird aufgerufen, um es Werkzeugen zu ermöglichen, eine Vorschau zu zeigen, ohne direkt auf das Bild zu zeichnen.
      * Damit eine neue Vorschau gezeichnet wird, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
      * aufgerufen werden.
      * </p>

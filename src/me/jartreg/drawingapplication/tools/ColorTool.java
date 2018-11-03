@@ -7,7 +7,7 @@ import java.awt.*;
  */
 public interface ColorTool {
     /**
-     * Gibt die Farbe des Werkzeugs zurÃ¼ck
+     * Gibt die Farbe des Werkzeugs zurück
      *
      * @return die Farbe des Werkzeugs
      */

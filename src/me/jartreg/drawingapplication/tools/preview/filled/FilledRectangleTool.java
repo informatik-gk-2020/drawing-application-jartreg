@@ -5,16 +5,16 @@ import me.jartreg.drawingapplication.tools.preview.ColorPreviewTool;
 import java.awt.*;
 
 /**
- * Das Werkzeug fÃ¼r gefÃ¼llte Rechtecke
+ * Das Werkzeug für gefüllte Rechtecke
  */
 public class FilledRectangleTool extends ColorPreviewTool {
     @Override
     public String getName() {
-        return "GefÃ¼lltes Rechteck";
+        return "Gefülltes Rechteck";
     }
 
     /**
-     * Zeichnet ein gefÃ¼lltes Rechteck
+     * Zeichnet ein gefülltes Rechteck
      *
      * @param g  das {@link Graphics2D}-Objekt
      * @param x1 der x-Wert der Startkoordinate
@@ -30,7 +30,7 @@ public class FilledRectangleTool extends ColorPreviewTool {
         int yMin = Math.min(y1, y2);
         int yMax = Math.max(y1, y2);
 
-        // gefÃ¼lltes Rechteck zeichnen
+        // gefülltes Rechteck zeichnen
         g.fillRect(xMin, yMin, xMax - xMin, yMax - yMin);
     }
 }

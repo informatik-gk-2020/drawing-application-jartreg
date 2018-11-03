@@ -3,7 +3,7 @@ package me.jartreg.drawingapplication.tools.preview.outline;
 import java.awt.*;
 
 /**
- * Das Werkzeug fÃ¼r Linien
+ * Das Werkzeug für Linien
  */
 public class LineTool extends OutlinePreviewTool {
     @Override

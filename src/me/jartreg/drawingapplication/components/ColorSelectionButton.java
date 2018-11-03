@@ -14,48 +14,48 @@ import java.beans.PropertyChangeListener;
  * Der Farbwahlknopf des Malprogramms
  *
  * <p>
- * Der Farbwahlknopf enth√§lt als Icon die aktuell ausgew√§hlte Farbe und ist deaktiviert,
- * wenn das aktuelle Tool keine Farbwahl zul√§sst.
+ * Der Farbwahlknopf enth‰lt als Icon die aktuell ausgew‰hlte Farbe und ist deaktiviert,
+ * wenn das aktuelle Tool keine Farbwahl zul‰sst.
  * </p>
  *
  * <p>
- * Beim Klick auf den Farbwahlknopf wird ein Farbwahldialog ge√∂ffnet und nach Best√§tigung die Farbe des aktuellen Tool ge√§ndert.
+ * Beim Klick auf den Farbwahlknopf wird ein Farbwahldialog geˆffnet und nach Best‰tigung die Farbe des aktuellen Tool ge‰ndert.
  * </p>
  */
 public class ColorSelectionButton extends JButton implements PropertyChangeListener, ActionListener {
     /**
-     * Das Hauptfenster, welches das Werkzeug enth√§lt und benachrichtigt, wenn ein anderes Tool gew√§hlt wurde
+     * Das Hauptfenster, welches das Werkzeug enth‰lt und benachrichtigt, wenn ein anderes Tool gew‰hlt wurde
      */
     private final MainWindow mainWindow;
 
     /**
-     * Das aktuelle Tool als {@link ColorTool} oder <code>null</code>, wenn das aktuelle Tool keine Farbwahl zul√§sst.
+     * Das aktuelle Tool als {@link ColorTool} oder <code>null</code>, wenn das aktuelle Tool keine Farbwahl zul‰sst.
      */
     private ColorTool tool = null;
 
     /**
-     * Erstellt einen neuen Farbwahlknopf, welcher die Farbe des aktuellen Tools in <code>mainWindow</code> √§ndern kann.
+     * Erstellt einen neuen Farbwahlknopf, welcher die Farbe des aktuellen Tools in <code>mainWindow</code> ‰ndern kann.
      *
-     * @param mainWindow das Hauptfenster, welches das Werkzeug enth√§lt und benachrichtigt, wenn ein anderes Tool gew√§hlt wurde
+     * @param mainWindow das Hauptfenster, welches das Werkzeug enth‰lt und benachrichtigt, wenn ein anderes Tool gew‰hlt wurde
      */
     public ColorSelectionButton(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
         setIcon(new ColorIcon()); // Das Farbicon
-        setText("Farbe w√§hlen");
-        setToolTipText("Farbe w√§hlen");
+        setText("Farbe w‰hlen");
+        setToolTipText("Farbe w‰hlen");
 
-        // Auf √Ñnderungen des Tool achten
+        // Auf ƒnderungen des Tool achten
         mainWindow.addPropertyChangeListener(MainWindow.SELECTED_TOOL_PROPERTY, this);
 
-        // Wird ausgel√∂st, wenn auf den Knopf geklickt wurde
+        // Wird ausgelˆst, wenn auf den Knopf geklickt wurde
         addActionListener(this);
     }
 
     /**
-     * Wird aufgerufen, wenn eine Eigenschaft ge√§ndert wurde
+     * Wird aufgerufen, wenn eine Eigenschaft ge‰ndert wurde
      *
      * <p>
-     * Hier wird die Methode dazu genutzt um auf √Ñnderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
+     * Hier wird die Methode dazu genutzt um auf ƒnderungen des aktuellen Werkzeugs des Hauptfensters zu achten.
      * </p>
      *
      * @param evt das Ereignis
@@ -63,7 +63,7 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        // Wenn das Werkzeug ge√§ndert wurde
+        // Wenn das Werkzeug ge‰ndert wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
             Object newValue = evt.getNewValue();
 
@@ -79,8 +79,8 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
      * Es wird folgendes gemacht:
      * </p>
      * <ul>
-     * <li>Es wird √ºberpr√ºft, ob der Knopf aktiviert sein soll.</li>
-     * <li>Der Knopf wird neu gezeichnet, damit das Icon die aktuelle Farbe √ºbernehmen kann.</li>
+     * <li>Es wird ¸berpr¸ft, ob der Knopf aktiviert sein soll.</li>
+     * <li>Der Knopf wird neu gezeichnet, damit das Icon die aktuelle Farbe ¸bernehmen kann.</li>
      * </ul>
      *
      * @param tool das Werkzeug, an den der Zustand angepasst werden soll oder <code>null</code>,
@@ -102,9 +102,9 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
         if (tool != null) { // Wenn eine Auswahl getroffen werden kann
 
             // Dialog zeigen
-            Color newColor = JColorChooser.showDialog(SwingUtilities.getWindowAncestor(this), "Farbe w√§hlen", tool.getColor());
+            Color newColor = JColorChooser.showDialog(SwingUtilities.getWindowAncestor(this), "Farbe w‰hlen", tool.getColor());
 
-            // Wenn eine neue Farbe gew√§hlt wurde
+            // Wenn eine neue Farbe gew‰hlt wurde
             if (newColor != null) {
                 tool.setColor(newColor); // Farbe an das Werkzeug weitergeben
                 repaint(); // Icon neu zeichnen
@@ -113,7 +113,7 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
     }
 
     /**
-     * Das Icon, welches in einem Rechteck die aktuell ausgew√§hlte Farbe oder Grau anzeigt
+     * Das Icon, welches in einem Rechteck die aktuell ausgew‰hlte Farbe oder Grau anzeigt
      */
     private class ColorIcon implements Icon {
         @Override

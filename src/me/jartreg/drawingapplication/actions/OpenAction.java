@@ -11,11 +11,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 /**
- * Die "Ã–ffnen"-Aktion
+ * Die "Öffnen"-Aktion
  *
  * <p>
- * Diese Aktion liest ein Bild aus einer Datei und Ã¶ffnet es in dem aktuellen Fenster oder einem neuen,
- * wenn das aktuelle eine Leinwand enthÃ¤lt
+ * Diese Aktion liest ein Bild aus einer Datei und öffnet es in dem aktuellen Fenster oder einem neuen,
+ * wenn das aktuelle eine Leinwand enthält
  * </p>
  *
  * <p>
@@ -29,12 +29,12 @@ public class OpenAction extends AbstractAction {
     private final MainWindow window;
 
     /**
-     * Erstellt eine neue "Ã–ffnen"-Aktion
+     * Erstellt eine neue "Öffnen"-Aktion
      *
      * @param window das Hauptfenster
      */
     public OpenAction(MainWindow window) {
-        super("Ã–ffnen");
+        super("Öffnen");
         this.window = window;
 
         // Tastenkombination: Strg + O
@@ -42,7 +42,7 @@ public class OpenAction extends AbstractAction {
     }
 
     /**
-     * Wird aufgerufen, wenn die Aktion ausgefÃ¼hrt wird
+     * Wird aufgerufen, wenn die Aktion ausgeführt wird
      *
      * @param e das Ereignis
      */
@@ -50,23 +50,23 @@ public class OpenAction extends AbstractAction {
     public void actionPerformed(ActionEvent e) {
         // Nach Datei fragen
         File file = FileUtilities.showOpenDialog(window);
-        if (file == null || !file.isFile()) // nichts ausgewÃ¤hlt? -> abbrechen
+        if (file == null || !file.isFile()) // nichts ausgewählt? -> abbrechen
             return;
 
-        // Aktuelles Fenster oder eine neues, wenn das aktuelle bereits eine Leinwand enthÃ¤lt
+        // Aktuelles Fenster oder eine neues, wenn das aktuelle bereits eine Leinwand enthält
         MainWindow currentWindow = window.getCanvas() == null ? window : new MainWindow();
-        currentWindow.setFile(file); // Datei Ã¼bergeben
-        currentWindow.setEnabled(false); // Eingaben verweigern, wÃ¤hrend die Datei gelesen wird
+        currentWindow.setFile(file); // Datei übergeben
+        currentWindow.setEnabled(false); // Eingaben verweigern, während die Datei gelesen wird
         currentWindow.setVisible(true); // Fenster anzeigen, damit der Nutzer nicht auf das lesen der Datei warten muss
 
-        // Datei Ã¶ffnen
+        // Datei öffnen
         BufferedImage image = FileUtilities.open(file); // dieser Aufruf ist erst fertig, wenn die Datei gelesen wurde
 
         if (image == null) { // Fehler?
             // Meldung anzeigen
             JOptionPane.showMessageDialog(
                     currentWindow,
-                    "Die Datei konnte nicht geÃ¶ffnet werden.",
+                    "Die Datei konnte nicht geöffnet werden.",
                     "Malprogramm",
                     JOptionPane.ERROR_MESSAGE
             );
@@ -77,7 +77,7 @@ public class OpenAction extends AbstractAction {
             return; // abbrechen
         }
 
-        // Leinwand Ã¼bergeben
+        // Leinwand übergeben
         currentWindow.setCanvas(new DrawingCanvas(currentWindow, image));
         currentWindow.setEnabled(true); // Lesen ist abgeschlossen -> Eingaben werden wieder akzeptiert
     }

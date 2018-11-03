@@ -5,7 +5,7 @@ package me.jartreg.drawingapplication.tools;
  */
 public interface ThicknessTool {
     /**
-     * Gibt die Breite des Tool zurÃ¼ck
+     * Gibt die Breite des Tool zurück
      *
      * @return die Breite des Tools
      */

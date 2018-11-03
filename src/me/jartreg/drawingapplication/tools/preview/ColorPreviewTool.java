@@ -5,11 +5,11 @@ import me.jartreg.drawingapplication.tools.ColorTool;
 import java.awt.*;
 
 /**
- * Basisklasse fÃ¼r Werkzeuge, die eine Vorschau zeichnen und eine Farbe haben
+ * Basisklasse für Werkzeuge, die eine Vorschau zeichnen und eine Farbe haben
  *
  * <p>
- * Die ausgewÃ¤hlte Farbe wird automatisch auf das {@link Graphics2D}-Objekt angewendet, sodass Unterklassen nichts machen mÃ¼ssen,
- * auÃŸer von dieser Klasse zu erben.
+ * Die ausgewählte Farbe wird automatisch auf das {@link Graphics2D}-Objekt angewendet, sodass Unterklassen nichts machen müssen,
+ * außer von dieser Klasse zu erben.
  * </p>
  *
  * @see me.jartreg.drawingapplication.tools.ColorTool
@@ -29,7 +29,7 @@ public abstract class ColorPreviewTool extends PreviewTool implements ColorTool 
     public void setColor(Color color) {
         this.color = color;
 
-        // Da die Farbe geÃ¤ndert wurde, muss die Einstellung auch auf das Graphics2D-Objekt Ã¼bernommen werden
+        // Da die Farbe geändert wurde, muss die Einstellung auch auf das Graphics2D-Objekt übernommen werden
         updateGraphics();
     }
 
