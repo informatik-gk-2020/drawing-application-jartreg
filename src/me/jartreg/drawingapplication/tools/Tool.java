@@ -41,6 +41,8 @@ import java.awt.event.MouseMotionListener;
  * <p>
  * <strong>Wichtig:</strong> wenn ein Werkzeug den Inhalt des Bildes geändert hat, muss {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()}
  * aufgrufen werden, damit der neue Inhalt des Bildes in das Fenster gezeichnet wird.
+ * Zudem sollte {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#markModified() markModified()} aufgerufen werden,
+ * um das Bild als geändert zu markieren.
  * </p>
  *
  * @see me.jartreg.drawingapplication.tools.preview.PreviewTool
@@ -79,7 +81,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
     }
 
     /**
-     * Gibt den Namen des Werkzeigs zurück.
+     * Gibt den Namen des Werkzeugs zurück.
      *
      * @return der Name des Werkzeugs
      */

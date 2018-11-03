@@ -101,7 +101,7 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
     /**
      * Zeichnet den Inhalt der Leinwand in das Fenster
      *
-     * @param graphics das {@link Graphics2D]-Objekt, mit dem gezeichnet wird
+     * @param graphics das {@link Graphics2D}-Objekt, mit dem gezeichnet wird
      */
     @Override
     public void paintComponent(Graphics graphics) {

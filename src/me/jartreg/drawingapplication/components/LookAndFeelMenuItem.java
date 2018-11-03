@@ -57,7 +57,7 @@ public class LookAndFeelMenuItem extends JRadioButtonMenuItem implements ActionL
      * ausgewählt wurde.
      * </p>
      *
-     * @param evt
+     * @param evt das Ereignis
      */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

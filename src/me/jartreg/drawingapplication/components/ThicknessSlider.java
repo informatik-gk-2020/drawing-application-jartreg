@@ -19,9 +19,9 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
     private ThicknessTool tool = null;
 
     /**
-     * Erstellt einen neuen Breitenschieberegler
+     * Erstellt einen neuen Breitenschieberegler, der die Breite des aktuellen Werkzeugs in <code>mainWindow</code> ändern kann.
      *
-     * @param mainWindow das Hauptfenster
+     * @param mainWindow das Hauptfenster, welches das Werkzeug enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
      */
     public ThicknessSlider(MainWindow mainWindow) {
         super(1, 50); // Werte von 1 bis 50 zulassen

@@ -27,14 +27,14 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
      * Erstellt einen neuen Werzeugauswahlknopf
      *
      * @param mainWindow das Hauptfenster
-     * @param tool
+     * @param tool das Werkzeug
      */
     public ToolSelectionButton(MainWindow mainWindow, Tool tool) {
         this.mainWindow = mainWindow;
         this.tool = tool;
         setText(tool.getName()); // Die Aufschrift des Knopfes ist der Name des Werkzeugs
 
-        // Darauf achten, wenn ein anderes Werkzeig ausgewählt wird
+        // Darauf achten, wenn ein anderes Werkzeug ausgewählt wird
         mainWindow.addPropertyChangeListener(MainWindow.SELECTED_TOOL_PROPERTY, this);
 
         // darauf achten, wenn auf den Knopf geklickt wird

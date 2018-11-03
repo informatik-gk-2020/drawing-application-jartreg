@@ -19,7 +19,7 @@ public class CloseAction extends AbstractAction {
     /**
      * Erstellt eine neue "Schließen"-Aktion
      *
-     * @param window
+     * @param window das Hauptfenster
      */
     public CloseAction(MainWindow window) {
         super("Schließen");

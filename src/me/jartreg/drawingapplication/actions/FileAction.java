@@ -7,7 +7,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 /**
- * Stellt eine Menüaktion dar, die nur aktiviert ist, wenn eine Leinwand vorhanden ist.
+ * Basisklasse für Aktionen, die nur aktiviert sind, wenn eine Leinwand vorhanden ist.
  *
  * <p>
  * Beispiele sind alle Aktionen, die etwas mit dem Speichern der Leinwand zu tun haben, da sie eine Leinand benötigen.

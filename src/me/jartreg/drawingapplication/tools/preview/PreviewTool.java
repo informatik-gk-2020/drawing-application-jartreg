@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * </p>
  *
  * <p>
- * Unterklassen müssen die Methode {@link #draw(Graphics2D, int, int, int, int) draw(...)} überschreiben, die sie zuerst
+ * Unterklassen müssen die Methode {@link #draw(Graphics2D, int, int, int, int)} überschreiben, da sie zuerst
  * genutzt wird, um die Vorschau zu zeichnen und später auch auf das Bild zeichnet.
  * </p>
  */

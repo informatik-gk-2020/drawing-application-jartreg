@@ -24,7 +24,7 @@ import java.beans.PropertyChangeListener;
  */
 public class ColorSelectionButton extends JButton implements PropertyChangeListener, ActionListener {
     /**
-     * Das Hauptfenster, welches das Tool enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
+     * Das Hauptfenster, welches das Werkzeug enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
      */
     private final MainWindow mainWindow;
 
@@ -36,7 +36,7 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
     /**
      * Erstellt einen neuen Farbwahlknopf, welcher die Farbe des aktuellen Tools in <code>mainWindow</code> ändern kann.
      *
-     * @param mainWindow das Hauptfenster, welches das Tool enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
+     * @param mainWindow das Hauptfenster, welches das Werkzeug enthält und benachrichtigt, wenn ein anderes Tool gewählt wurde
      */
     public ColorSelectionButton(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
