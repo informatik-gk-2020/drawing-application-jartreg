@@ -28,7 +28,7 @@ jobs:
       local-dir: "build/docs/javadoc"
   - name: deploy release
     stage: deploy
-    if: (branch = master) AND (tag IS present)
+    if: tag IS present
     script: "./gradlew distributionArtifacts"
     deploy:
       provider: releases
