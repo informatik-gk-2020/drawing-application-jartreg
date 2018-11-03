@@ -340,10 +340,9 @@ public class MainWindow extends JFrame {
      * @param file die Datei, in die das Bild gespeichert werden soll
      */
     public void setFile(File file) {
-        var oldValue = this.file;
         this.file = file;
 
-        updateTitle(); // Titel aktualiesieren
+        updateTitle(); // Titel aktualisieren
     }
 
     /**
@@ -372,13 +371,15 @@ public class MainWindow extends JFrame {
      * @return ob das Speichern erfolgreich war
      */
     public boolean save(boolean forceDialog) {
+        var file = getFile();
+
         // Datei auswählen lassen wenn noch keine ausgewählt ist oder forceDialog true ist
-        if (forceDialog || getFile() == null) {
-            selectFile();
+        if (forceDialog || file == null) {
+            file = FileUtilities.showSaveDialog(this);
         }
 
-        var file = getFile();
         if (file != null) { // wenn ausgewählt
+            setFile(file); // aktualisieren, falls eine andere ausgewählt wurde
             return save(file); // speichern
         }
 
@@ -408,12 +409,5 @@ public class MainWindow extends JFrame {
         }
 
         return success;
-    }
-
-    /**
-     * Lässt deb Benutzer eine Datei auswählen, in der das Bild gespeichert werden soll
-     */
-    private void selectFile() {
-        setFile(FileUtilities.showSaveDialog(this));
     }
 }
