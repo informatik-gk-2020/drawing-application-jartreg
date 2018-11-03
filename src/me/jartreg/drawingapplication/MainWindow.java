@@ -221,6 +221,7 @@ public class MainWindow extends JFrame {
      * <p>
      * Die Methode wird überschrieben, um den Benutzer beim schließen des Fensters zu fragen, ob er das Bild speicher will
      * </p>
+     *
      * @param e das Ereignis
      */
     @Override

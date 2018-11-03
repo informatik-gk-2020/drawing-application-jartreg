@@ -8,6 +8,8 @@ import javax.swing.*;
 public class Main {
     /**
      * Die Startmethode
+     *
+     * @param args die Kommandozeilenparameter
      */
     public static void main(String[] args) {
         // Das Aussehen ändern, damit die Anwendung wie der Rest des Systems aussieht

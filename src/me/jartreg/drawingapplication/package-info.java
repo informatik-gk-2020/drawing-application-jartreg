@@ -2,21 +2,21 @@
  * Enthält das Malprogramm
  *
  * <p>
- *     Die Klasse {@link me.jartreg.drawingapplication.Main} ist hierbei der Einstiegspunkt und erstellt ein neues Fenster
- *     der Klasse {@link me.jartreg.drawingapplication.MainWindow}. Dieses enthält anfangs noch keine Leinwand,
- *     da erst under Datei/Neu ein neues Bild erstellt oder mit Datei/Öffnen eins geöffnet werden muss.
+ * Die Klasse {@link me.jartreg.drawingapplication.Main} ist hierbei der Einstiegspunkt und erstellt ein neues Fenster
+ * der Klasse {@link me.jartreg.drawingapplication.MainWindow}. Dieses enthält anfangs noch keine Leinwand,
+ * da erst under Datei/Neu ein neues Bild erstellt oder mit Datei/Öffnen eins geöffnet werden muss.
  * </p>
  * <p>
- *     Beim Erstellen eines neuen Bildes wird in {@link me.jartreg.drawingapplication.actions.NewAction NewAction} mit
- *     {@link me.jartreg.drawingapplication.components.DrawingCanvas#createNew(me.jartreg.drawingapplication.MainWindow, int, int) DrawingCanvas.createNew(...)}
- *     ein neues {@link me.jartreg.drawingapplication.components.DrawingCanvas DrawingCanvas} erstellt und mit
- *     {@link me.jartreg.drawingapplication.MainWindow#setCanvas(me.jartreg.drawingapplication.components.DrawingCanvas) MainWindow.setDrawingCanvas(...)}
- *     zum Fenster hinzugefügt.
+ * Beim Erstellen eines neuen Bildes wird in {@link me.jartreg.drawingapplication.actions.NewAction NewAction} mit
+ * {@link me.jartreg.drawingapplication.components.DrawingCanvas#createNew(me.jartreg.drawingapplication.MainWindow, int, int) DrawingCanvas.createNew(...)}
+ * ein neues {@link me.jartreg.drawingapplication.components.DrawingCanvas DrawingCanvas} erstellt und mit
+ * {@link me.jartreg.drawingapplication.MainWindow#setCanvas(me.jartreg.drawingapplication.components.DrawingCanvas) MainWindow.setDrawingCanvas(...)}
+ * zum Fenster hinzugefügt.
  * </p>
  * <p>
- *     Beim Öffnen eines Bildes wird in {@link me.jartreg.drawingapplication.actions.OpenAction OpenAction} ein Bild gelesen,
- *     damit ein neues {@link me.jartreg.drawingapplication.components.DrawingCanvas DrawingCanvas} erstellt
- *     und zum Fenster hinzufgefügt.
+ * Beim Öffnen eines Bildes wird in {@link me.jartreg.drawingapplication.actions.OpenAction OpenAction} ein Bild gelesen,
+ * damit ein neues {@link me.jartreg.drawingapplication.components.DrawingCanvas DrawingCanvas} erstellt
+ * und zum Fenster hinzufgefügt.
  * </p>
  *
  * <h3>Pakete</h3>
