@@ -366,12 +366,16 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Zeigt den "Speichern unter"-Dialog an und speichert das Bild in dieser Datei
+     * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen.
      *
+     * @param forceDialog erzwingt das Anzeigen eines Speichern-Dialogs
      * @return ob das Speichern erfolgreich war
      */
-    public boolean saveAs() {
-        selectFile(); // Datei auswählen lassen
+    public boolean save(boolean forceDialog) {
+        // Datei auswählen lassen wenn noch keine ausgewählt ist oder forceDialog true ist
+        if (forceDialog || getFile() == null) {
+            selectFile();
+        }
 
         var file = getFile();
         if (file != null) { // wenn ausgewählt
@@ -382,21 +386,21 @@ public class MainWindow extends JFrame {
     }
 
     /**
+     * Zeigt den "Speichern unter"-Dialog an und speichert das Bild in dieser Datei
+     *
+     * @return ob das Speichern erfolgreich war
+     */
+    public boolean saveAs() {
+        return save(true);
+    }
+
+    /**
      * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen
      *
      * @return ob das Speichern erfolgreich war
      */
     public boolean save() {
-        if (getFile() == null) {
-            selectFile();
-        }
-
-        var file = getFile();
-        if (file != null) { // wenn ausgewählt
-            return save(file); // speichern
-        }
-
-        return false;
+        return save(false);
     }
 
     /**
