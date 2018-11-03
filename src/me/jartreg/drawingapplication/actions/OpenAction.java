@@ -8,28 +8,56 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
 
+/**
+ * Die "Öffnen"-Aktion
+ *
+ * <p>
+ * Diese Aktion liest ein Bild aus einer Datei und öffnet es in dem aktuellen Fenster oder einem neuen,
+ * wenn das aktuelle eine Leinwand enthält
+ * </p>
+ */
 public class OpenAction extends AbstractAction {
+    /**
+     * das Hauptfenster
+     */
     private final MainWindow window;
 
+    /**
+     * Erstellt eine neue "Öffnen"-Aktion
+     *
+     * @param window das Hauptfenster
+     */
     public OpenAction(MainWindow window) {
         super("Öffnen");
-        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke('O', InputEvent.CTRL_DOWN_MASK));
         this.window = window;
+
+        // Tastenkombination: Strg + O
+        putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke('O', InputEvent.CTRL_DOWN_MASK));
     }
 
+    /**
+     * Wird aufgerufen, wenn die Aktion ausgeführt wird
+     *
+     * @param e das Ereignis
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Nach Datei fragen
         var file = FileUtilities.showOpenDialog(window);
-        if (file == null || !file.isFile())
+        if (file == null || !file.isFile()) // nichts ausgewählt? -> abbrechen
             return;
 
+        // Aktuelles Fenster oder eine neues, wenn das aktuelle bereits eine Leinwand enthält
         var currentWindow = window.getCanvas() == null ? window : new MainWindow();
-        currentWindow.setFile(file);
-        currentWindow.setEnabled(false);
-        currentWindow.setVisible(true);
+        currentWindow.setFile(file); // Datei übergeben
+        currentWindow.setEnabled(false); // Eingaben verweigern, während die Datei gelesen wird
+        currentWindow.setVisible(true); // Fenster anzeigen, damit der Nutzer nicht auf das lesen der Datei warten muss
 
-        var image = FileUtilities.open(file);
-        if (image == null) {
+        // Datei öffnen
+        var image = FileUtilities.open(file); // dieser Aufruf ist erst fertig, wenn die Datei gelesen wurde
+
+        if (image == null) { // Fehler?
+            // Meldung anzeigen
             JOptionPane.showMessageDialog(
                     currentWindow,
                     "Die Datei konnte nicht geöffnet werden.",
@@ -37,12 +65,14 @@ public class OpenAction extends AbstractAction {
                     JOptionPane.ERROR_MESSAGE
             );
 
+            // Wenn ein neues Fenster erstellt wurde, wird es wieder geschlossen.
             if (currentWindow != window)
                 currentWindow.dispose();
-            return;
+            return; // abbrechen
         }
 
+        // Leinwand übergeben
         currentWindow.setCanvas(new DrawingCanvas(currentWindow, image));
-        currentWindow.setEnabled(true);
+        currentWindow.setEnabled(true); // Lesen ist abgeschlossen -> Eingaben werden wieder akzeptiert
     }
 }
