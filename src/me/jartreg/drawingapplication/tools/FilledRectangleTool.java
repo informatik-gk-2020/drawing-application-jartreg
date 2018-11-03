@@ -1,20 +1,18 @@
-package me.jartreg.drawingapplication.tools.preview.filled;
-
-import me.jartreg.drawingapplication.tools.preview.ColorPreviewTool;
+package me.jartreg.drawingapplication.tools;
 
 import java.awt.*;
 
 /**
- * Das Werkzeug für gefüllte Kreise
+ * Das Werkzeug für gefüllte Rechtecke
  */
-public class FilledCircleTool extends ColorPreviewTool {
+public class FilledRectangleTool extends ColorPreviewTool {
     @Override
     public String getName() {
-        return "Gefüllter Kreis";
+        return "Gefülltes Rechteck";
     }
 
     /**
-     * Zeichnet einen gefüllten Kreis
+     * Zeichnet ein gefülltes Rechteck
      *
      * @param g  das {@link Graphics2D}-Objekt
      * @param x1 der x-Wert der Startkoordinate
@@ -30,7 +28,7 @@ public class FilledCircleTool extends ColorPreviewTool {
         int yMin = Math.min(y1, y2);
         int yMax = Math.max(y1, y2);
 
-        // den Kreis zeichnen
-        g.fillOval(xMin, yMin, xMax - xMin, yMax - yMin);
+        // gefülltes Rechteck zeichnen
+        g.fillRect(xMin, yMin, xMax - xMin, yMax - yMin);
     }
 }

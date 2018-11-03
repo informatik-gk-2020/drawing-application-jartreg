@@ -1,18 +1,18 @@
-package me.jartreg.drawingapplication.tools.preview.outline;
+package me.jartreg.drawingapplication.tools;
 
 import java.awt.*;
 
 /**
- * Das Werkzeug für Rechtecke
+ * Das Werzeug für Kreise/Ovale
  */
-public class RectangleTool extends OutlinePreviewTool {
+public class CircleTool extends OutlinePreviewTool {
     @Override
     public String getName() {
-        return "Rechteck";
+        return "Kreis";
     }
 
     /**
-     * Zeichnet ein Rechteck
+     * Zeichnet einen Kreis/ein Oval
      *
      * @param g  das {@link Graphics2D}-Objekt
      * @param x1 der x-Wert der Startkoordinate
@@ -28,7 +28,7 @@ public class RectangleTool extends OutlinePreviewTool {
         int yMin = Math.min(y1, y2);
         int yMax = Math.max(y1, y2);
 
-        // Rechteck zeichnen
-        g.drawRect(xMin, yMin, xMax - xMin, yMax - yMin);
+        // Kreis/Oval zeichnen
+        g.drawOval(xMin, yMin, xMax - xMin, yMax - yMin);
     }
 }

@@ -30,12 +30,12 @@ import java.awt.event.MouseMotionListener;
  * <p>
  * Sollte ein Werkzeug eine Vorschau zeichnen wollen, die nicht in dem Bild gespeichert werden soll, so kann es die
  * Methode {@link #drawPreview(Graphics2D)} überschreiben und {@link #getCanvas()}<code>.</code>{@link DrawingCanvas#repaint() repaint()} aufrufen,
- * wenn es eine neue Vorschau zeichnen möchte. Als Hilfe kann von der Klasse {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}
+ * wenn es eine neue Vorschau zeichnen möchte. Als Hilfe kann von der Klasse {@link PreviewTool PreviewTool}
  * geerbt werden.
  * </p>
  *
  * <p>
- * Einfache Werkzeuge, die direkt auf das Bild zeichnen, können von der Klasse {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool} erben.
+ * Einfache Werkzeuge, die direkt auf das Bild zeichnen, können von der Klasse {@link DrawingTool DrawingTool} erben.
  * </p>
  *
  * <p>
@@ -45,8 +45,8 @@ import java.awt.event.MouseMotionListener;
  * um das Bild als geändert zu markieren.
  * </p>
  *
- * @see me.jartreg.drawingapplication.tools.preview.PreviewTool
- * @see me.jartreg.drawingapplication.tools.drawing.DrawingTool
+ * @see PreviewTool
+ * @see DrawingTool
  */
 public abstract class Tool implements MouseListener, MouseMotionListener {
     /**

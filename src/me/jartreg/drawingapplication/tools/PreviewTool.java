@@ -1,4 +1,4 @@
-package me.jartreg.drawingapplication.tools.preview;
+package me.jartreg.drawingapplication.tools;
 
 import me.jartreg.drawingapplication.tools.Tool;
 

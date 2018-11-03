@@ -1,6 +1,4 @@
-package me.jartreg.drawingapplication.tools.drawing;
-
-import me.jartreg.drawingapplication.tools.ColorTool;
+package me.jartreg.drawingapplication.tools;
 
 import java.awt.*;
 

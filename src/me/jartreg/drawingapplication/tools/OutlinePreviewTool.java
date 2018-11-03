@@ -1,7 +1,7 @@
-package me.jartreg.drawingapplication.tools.preview.outline;
+package me.jartreg.drawingapplication.tools;
 
 import me.jartreg.drawingapplication.tools.ThicknessTool;
-import me.jartreg.drawingapplication.tools.preview.ColorPreviewTool;
+import me.jartreg.drawingapplication.tools.ColorPreviewTool;
 
 import java.awt.*;
 

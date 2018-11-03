@@ -1,4 +1,4 @@
-package me.jartreg.drawingapplication.tools.drawing;
+package me.jartreg.drawingapplication.tools;
 
 import me.jartreg.drawingapplication.tools.ThicknessTool;
 import me.jartreg.drawingapplication.tools.Tool;
