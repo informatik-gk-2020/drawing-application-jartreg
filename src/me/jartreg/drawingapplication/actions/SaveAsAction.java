@@ -33,6 +33,6 @@ public class SaveAsAction extends FileAction {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        getWindow().saveAs();
+        getWindow().save(true); // Dialog anzeigen und speichern
     }
 }

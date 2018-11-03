@@ -250,7 +250,7 @@ public class MainWindow extends JFrame {
                 );
 
                 if (result == JOptionPane.YES_OPTION) { // Der Benutzer will speichern
-                    if (!save()) { // speichern
+                    if (!save(false)) { // speichern
                         return; // wenn das Bild nicht gespeichert werden konnte, wird nichts gemacht
                     }
                 } else if (result != JOptionPane.NO_OPTION) {
@@ -340,10 +340,9 @@ public class MainWindow extends JFrame {
      * @param file die Datei, in die das Bild gespeichert werden soll
      */
     public void setFile(File file) {
-        var oldValue = this.file;
         this.file = file;
 
-        updateTitle(); // Titel aktualiesieren
+        updateTitle(); // Titel aktualisieren
     }
 
     /**
@@ -366,33 +365,21 @@ public class MainWindow extends JFrame {
     }
 
     /**
-     * Zeigt den "Speichern unter"-Dialog an und speichert das Bild in dieser Datei
+     * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen.
      *
+     * @param forceDialog erzwingt das Anzeigen eines Speichern-Dialogs
      * @return ob das Speichern erfolgreich war
      */
-    public boolean saveAs() {
-        selectFile(); // Datei auswählen lassen
-
+    public boolean save(boolean forceDialog) {
         var file = getFile();
-        if (file != null) { // wenn ausgewählt
-            return save(file); // speichern
+
+        // Datei auswählen lassen wenn noch keine ausgewählt ist oder forceDialog true ist
+        if (forceDialog || file == null) {
+            file = FileUtilities.showSaveDialog(this);
         }
 
-        return false;
-    }
-
-    /**
-     * Speichert das Bild und lässt den Benutzer, sollte noch keine Datei ausgewählt worden sein, eine Datei auswählen
-     *
-     * @return ob das Speichern erfolgreich war
-     */
-    public boolean save() {
-        if (getFile() == null) {
-            selectFile();
-        }
-
-        var file = getFile();
         if (file != null) { // wenn ausgewählt
+            setFile(file); // aktualisieren, falls eine andere ausgewählt wurde
             return save(file); // speichern
         }
 
@@ -422,12 +409,5 @@ public class MainWindow extends JFrame {
         }
 
         return success;
-    }
-
-    /**
-     * Lässt deb Benutzer eine Datei auswählen, in der das Bild gespeichert werden soll
-     */
-    private void selectFile() {
-        setFile(FileUtilities.showSaveDialog(this));
     }
 }
