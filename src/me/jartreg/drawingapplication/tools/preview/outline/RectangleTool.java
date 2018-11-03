@@ -23,10 +23,10 @@ public class RectangleTool extends OutlinePreviewTool {
     @Override
     protected void draw(Graphics2D g, int x1, int y1, int x2, int y2) {
         // Koordinaten in oben links und unten rechts aufteilen
-        var xMin = Math.min(x1, x2);
-        var xMax = Math.max(x1, x2);
-        var yMin = Math.min(y1, y2);
-        var yMax = Math.max(y1, y2);
+        int xMin = Math.min(x1, x2);
+        int xMax = Math.max(x1, x2);
+        int yMin = Math.min(y1, y2);
+        int yMax = Math.max(y1, y2);
 
         // Rechteck zeichnen
         g.drawRect(xMin, yMin, xMax - xMin, yMax - yMin);

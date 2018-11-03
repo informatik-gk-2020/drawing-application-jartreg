@@ -74,7 +74,7 @@ public abstract class Tool implements MouseListener, MouseMotionListener {
      * </p>
      */
     protected void updateGraphics() {
-        var g = getGraphics();
+        Graphics2D g = getGraphics();
         if (g != null) { // wenn vorhanden
             prepareGraphics(g); // Einstellungen übertragen
         }

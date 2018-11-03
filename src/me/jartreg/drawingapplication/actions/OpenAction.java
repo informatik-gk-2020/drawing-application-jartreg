@@ -7,6 +7,8 @@ import me.jartreg.drawingapplication.components.DrawingCanvas;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * Die "Öffnen"-Aktion
@@ -47,18 +49,18 @@ public class OpenAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Nach Datei fragen
-        var file = FileUtilities.showOpenDialog(window);
+        File file = FileUtilities.showOpenDialog(window);
         if (file == null || !file.isFile()) // nichts ausgewählt? -> abbrechen
             return;
 
         // Aktuelles Fenster oder eine neues, wenn das aktuelle bereits eine Leinwand enthält
-        var currentWindow = window.getCanvas() == null ? window : new MainWindow();
+        MainWindow currentWindow = window.getCanvas() == null ? window : new MainWindow();
         currentWindow.setFile(file); // Datei übergeben
         currentWindow.setEnabled(false); // Eingaben verweigern, während die Datei gelesen wird
         currentWindow.setVisible(true); // Fenster anzeigen, damit der Nutzer nicht auf das lesen der Datei warten muss
 
         // Datei öffnen
-        var image = FileUtilities.open(file); // dieser Aufruf ist erst fertig, wenn die Datei gelesen wurde
+        BufferedImage image = FileUtilities.open(file); // dieser Aufruf ist erst fertig, wenn die Datei gelesen wurde
 
         if (image == null) { // Fehler?
             // Meldung anzeigen

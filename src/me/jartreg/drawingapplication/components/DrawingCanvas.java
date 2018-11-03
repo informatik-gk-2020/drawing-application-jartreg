@@ -61,10 +61,10 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
      */
     public static DrawingCanvas createNew(MainWindow window, int width, int height) {
         // Ein neues Bild erstellen
-        var image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         // Den Hintergrund des Bildes weiß füllen
-        var graphics = image.createGraphics();
+        Graphics2D graphics = image.createGraphics();
         graphics.setColor(Color.WHITE);
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
         graphics.dispose();
@@ -103,7 +103,7 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
      */
     @Override
     public void paintComponent(Graphics graphics) {
-        var g = (Graphics2D) graphics;
+        Graphics2D g = (Graphics2D) graphics;
 
         // Das Bild zeichnen
         g.drawImage(image, 0, 0, null);
@@ -140,7 +140,7 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
 
             // Das vorherige Werkzeug soll, wenn vorhanden, von dieser Leinwand entfernt werden,
             // damit es nicht mehr zum Zeichnen benutzt werden kann
-            var oldValue = (Tool) evt.getOldValue();
+            Tool oldValue = (Tool) evt.getOldValue();
             if (oldValue != null) {
                 removeMouseListener(oldValue);
                 removeMouseMotionListener(oldValue);
@@ -151,7 +151,7 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
             }
 
             // Das neue Werkzeug soll, wenn vorhanden, zu dieser Leinwand hinzugefügt werden
-            var newValue = (Tool) evt.getNewValue();
+            Tool newValue = (Tool) evt.getNewValue();
             if (newValue != null) {
                 attachTool(newValue);
             }

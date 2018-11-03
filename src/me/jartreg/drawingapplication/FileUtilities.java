@@ -24,10 +24,10 @@ public final class FileUtilities {
      * @return ob das Speichern erfolgreich war
      */
     public static boolean save(BufferedImage image, File file) {
-        var result = new boolean[]{false}; // wird enthalten, ob erfolgreich gespeichert wurde
+        boolean[] result = new boolean[]{false}; // wird enthalten, ob erfolgreich gespeichert wurde
 
         // Wird benutzt, um das Programm zu pausieren, wärend das Bild gespeichert wird
-        var eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
+        SecondaryLoop eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
 
         // Speichert das Bild in einem anderen Thread, damit die Anwendung nicht hängt
         ForkJoinPool.commonPool().execute(() -> {
@@ -53,10 +53,10 @@ public final class FileUtilities {
      * @return das Bild
      */
     public static BufferedImage open(File file) {
-        var result = new BufferedImage[]{null}; // Wird das Bild enthalten
+        BufferedImage[] result = new BufferedImage[]{null}; // Wird das Bild enthalten
 
         // Wird benutzt, um das Programm zu pausieren, wärend das Bild gelesen wird
-        var eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
+        SecondaryLoop eventQueue = Toolkit.getDefaultToolkit().getSystemEventQueue().createSecondaryLoop();
 
         // Öffnet das Bild in einem anderen Thread, damit die Anwendung nicht hängt
         ForkJoinPool.commonPool().execute(() -> {
@@ -81,14 +81,14 @@ public final class FileUtilities {
      * @return die ausgewählte Datei oder <code>null</code>
      */
     public static File showSaveDialog(Frame parent) {
-        var fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser();
 
         // Nur .png-Dateien werden zugelassen
         fileChooser.setFileFilter(new FileNameExtensionFilter("PNG-Dateien", "png"));
 
         // Wenn der Nutzer bestätigt hat...
         if (fileChooser.showSaveDialog(parent) == JFileChooser.APPROVE_OPTION) {
-            var file = fileChooser.getSelectedFile();
+            File file = fileChooser.getSelectedFile();
 
             // Wenn der Dateiname noch keine Endung enthält, wird eine angefügt
             if (!file.getName().toLowerCase().endsWith(".png"))
@@ -107,7 +107,7 @@ public final class FileUtilities {
      * @return die ausgewählte Datei oder <code>null</code>
      */
     public static File showOpenDialog(Frame parent) {
-        var fileChooser = new JFileChooser();
+        JFileChooser fileChooser = new JFileChooser();
 
         // Nur .png-Dateien werden zugelassen
         fileChooser.setFileFilter(new FileNameExtensionFilter("PNG-Dateien", "png"));

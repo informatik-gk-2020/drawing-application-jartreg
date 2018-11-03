@@ -47,7 +47,7 @@ public class ThicknessSlider extends JSlider implements PropertyChangeListener, 
     public void propertyChange(PropertyChangeEvent evt) {
         // Wenn das Werkzeug geändert wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
-            var newValue = evt.getNewValue();
+            Object newValue = evt.getNewValue();
 
             // Zustand aktualisieren
             updateState(newValue instanceof ThicknessTool ? (ThicknessTool) newValue : null);

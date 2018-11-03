@@ -65,7 +65,7 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
     public void propertyChange(PropertyChangeEvent evt) {
         // Wenn das Werkzeug geändert wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
-            var newValue = evt.getNewValue();
+            Object newValue = evt.getNewValue();
 
             // Zustand aktualisieren
             updateState(newValue instanceof ColorTool ? (ColorTool) newValue : null);
@@ -102,7 +102,7 @@ public class ColorSelectionButton extends JButton implements PropertyChangeListe
         if (tool != null) { // Wenn eine Auswahl getroffen werden kann
 
             // Dialog zeigen
-            var newColor = JColorChooser.showDialog(SwingUtilities.getWindowAncestor(this), "Farbe wählen", tool.getColor());
+            Color newColor = JColorChooser.showDialog(SwingUtilities.getWindowAncestor(this), "Farbe wählen", tool.getColor());
 
             // Wenn eine neue Farbe gewählt wurde
             if (newColor != null) {

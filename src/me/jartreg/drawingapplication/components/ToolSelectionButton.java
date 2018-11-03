@@ -55,7 +55,7 @@ public class ToolSelectionButton extends JToggleButton implements PropertyChange
     public void propertyChange(PropertyChangeEvent evt) {
         // Wenn ein anderes Werkzeug ausgewählt wurde
         if (evt.getPropertyName() == MainWindow.SELECTED_TOOL_PROPERTY) {
-            var newValue = evt.getNewValue();
+            Object newValue = evt.getNewValue();
             setSelected(tool == newValue); // diesen Knopf als ausgewählt markieren, wenn es das eigene Werkzeug ist
         }
     }

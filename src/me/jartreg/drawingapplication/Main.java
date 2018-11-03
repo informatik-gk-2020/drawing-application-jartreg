@@ -19,7 +19,7 @@ public class Main {
         }
 
         // Ein neues leeres Fenster erstellen und anzeigen
-        var window = new MainWindow();
+        MainWindow window = new MainWindow();
         window.setVisible(true);
     }
 }

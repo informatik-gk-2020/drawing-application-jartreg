@@ -96,11 +96,11 @@ public class MainWindow extends JFrame {
      */
     private void buildLayout(JComponent contentPanel) {
         // eine neue Komponente, die das Menü und den Inhalt enthalten wird
-        var rootPanel = new JPanel(new BorderLayout());
+        JPanel rootPanel = new JPanel(new BorderLayout());
         getContentPane().add(rootPanel); // zum Fenster hinzufügen
 
         // Das Menü
-        var menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
         buildMenu(menuBar); // die Menüeinträge hinzufügen
 
         // Menüleiste und Inhalt hinzufügen
@@ -115,7 +115,7 @@ public class MainWindow extends JFrame {
      */
     private void buildMenu(JMenuBar menuBar) {
         // Das Menü "Datei"
-        var fileMenu = new JMenu("Datei");
+        JMenu fileMenu = new JMenu("Datei");
         fileMenu.add(new NewAction(this));
         fileMenu.add(new OpenAction(this));
         fileMenu.addSeparator();
@@ -126,8 +126,8 @@ public class MainWindow extends JFrame {
         menuBar.add(fileMenu); // "Datei" zum Menü hinzufügen
 
         // Das Menü "Ansicht"
-        var viewMenu = new JMenu("Ansicht");
-        var lafMenu = new JMenu("Aussehen"); // Das Untermenü "Ansicht"/"Aussehen"
+        JMenu viewMenu = new JMenu("Ansicht");
+        JMenu lafMenu = new JMenu("Aussehen"); // Das Untermenü "Ansicht"/"Aussehen"
         viewMenu.add(lafMenu); // "Aussehen" zu "Ansicht hinzufügen"
 
         // Für jedes Aussehen einen neuen Menüeintrag hinzufügen
@@ -145,7 +145,7 @@ public class MainWindow extends JFrame {
      * @return die komponente, die den Inhalt des Fensters enthält
      */
     private JComponent buildContentPanel(JComponent canvasContainer) {
-        var contentPanel = new JPanel(new BorderLayout()); // die Komponente erstellen
+        JPanel contentPanel = new JPanel(new BorderLayout()); // die Komponente erstellen
 
         // Hauptwerkzeugleiste erstellen und hinzufügen (oben)
         contentPanel.add(buildMainToolBar(), BorderLayout.PAGE_START);
@@ -154,7 +154,7 @@ public class MainWindow extends JFrame {
         contentPanel.add(buildPropertiesToolBar(), BorderLayout.PAGE_END);
 
         // Eine Scrollkomponente, damit die Leinwand gescrollt werden kann, wenn das Fenster kleiner ist
-        var canvasScroller = new JScrollPane(
+        JScrollPane canvasScroller = new JScrollPane(
                 canvasContainer,
                 ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
                 ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED
@@ -171,7 +171,7 @@ public class MainWindow extends JFrame {
      */
     private JToolBar buildMainToolBar() {
         // Werkzeugleiste erstellen und benennen
-        var toolBar = new JToolBar();
+        JToolBar toolBar = new JToolBar();
         toolBar.setName("Werkzeuge");
 
         // Für jedes Werkzeug einen Eintrag hinzufügen
@@ -189,7 +189,7 @@ public class MainWindow extends JFrame {
      */
     private JToolBar buildPropertiesToolBar() {
         // Werkzeugleiste erstellen und benennen
-        var toolBar = new JToolBar();
+        JToolBar toolBar = new JToolBar();
         toolBar.setName("Eigenschaften");
 
         // Knopf zum Auswählen der Farbe
@@ -241,7 +241,7 @@ public class MainWindow extends JFrame {
             // Wenn im Fenster ein Bild vorhanden ist und es nicht gespeicherte Änderungen enthält
             if (canvas != null && isModified()) {
                 // Benutzer fragen
-                var result = JOptionPane.showConfirmDialog(
+                int result = JOptionPane.showConfirmDialog(
                         this,
                         "Soll die Datei vor dem Schließen gespeichert werden?",
                         "Malprogramm",
@@ -282,7 +282,7 @@ public class MainWindow extends JFrame {
      */
     public void setSelectedTool(Tool selectedTool) {
         if (this.selectedTool != selectedTool) { // nichts machen, wenn es das gleiche ist
-            var oldValue = this.selectedTool;
+            Tool oldValue = this.selectedTool;
             this.selectedTool = selectedTool;
 
             // Den Tools mitteilen, ob sie ausgewählt sind
@@ -371,7 +371,7 @@ public class MainWindow extends JFrame {
      * @return ob das Speichern erfolgreich war
      */
     public boolean save(boolean forceDialog) {
-        var file = getFile();
+        File file = getFile();
 
         // Datei auswählen lassen wenn noch keine ausgewählt ist oder forceDialog true ist
         if (forceDialog || file == null) {
@@ -394,7 +394,7 @@ public class MainWindow extends JFrame {
      */
     private boolean save(File file) {
         setEnabled(false); // kein Schließen wärend des Speicherns zulassen
-        var success = FileUtilities.save(getCanvas().getImage(), file); // Speichern
+        boolean success = FileUtilities.save(getCanvas().getImage(), file); // Speichern
         setEnabled(true); // Schließen wieder zulassen
 
         if (!success) { // Wenn nicht erfolgreich: Fehler anzeigen

@@ -101,8 +101,8 @@ public abstract class DrawingTool extends Tool implements ThicknessTool {
         // wird zurzeit gezeichnet?
         if (drawing) {
             // letze Position zwischenspeichern
-            var x1 = x;
-            var y1 = y;
+            int x1 = x;
+            int y1 = y;
 
             // aktuelle Position speichern
             x = e.getX();

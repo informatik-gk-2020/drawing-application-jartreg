@@ -48,10 +48,10 @@ public class NewAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         // Dieses Fenster oder ein neues, wenn das aktuelle bereits eine Leinwand enthält
-        var window = this.window.getCanvas() == null ? this.window : new MainWindow();
+        MainWindow window = this.window.getCanvas() == null ? this.window : new MainWindow();
 
         // nach der Größe fragen
-        var size = showCreateNewDialog();
+        Dimension size = showCreateNewDialog();
         if (size == null) {
             window.dispose();
             // wenn der Benutzer den Dialog nicht bestätigt hat oder die Werte nicht konvertiert werden konnten,
@@ -60,7 +60,7 @@ public class NewAction extends AbstractAction {
         }
 
         // Neue Leinvand erstellen und zum Fenster hinzufügen
-        var canvas = DrawingCanvas.createNew(window, size.width, size.height);
+        DrawingCanvas canvas = DrawingCanvas.createNew(window, size.width, size.height);
         window.setCanvas(canvas);
         window.setVisible(true); // Fenster anzeigen
     }
@@ -72,11 +72,11 @@ public class NewAction extends AbstractAction {
      */
     private Dimension showCreateNewDialog() {
         // Textfelder zum Eingeben der Größe
-        var widthText = new NumberTextField("600");
-        var heightText = new NumberTextField("400");
+        NumberTextField widthText = new NumberTextField("600");
+        NumberTextField heightText = new NumberTextField("400");
 
         // Dialog anzeigen
-        var result = JOptionPane.showConfirmDialog(
+        int result = JOptionPane.showConfirmDialog(
                 window,
                 new Object[]{ // Inhalt des Dialogs untereinander
                         "Breite des Bildes (in Pixeln):",
