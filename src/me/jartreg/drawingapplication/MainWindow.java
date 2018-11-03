@@ -31,11 +31,6 @@ public class MainWindow extends JFrame {
     public static final String CANVAS_PROPRETY = "canvas";
 
     /**
-     * Name der Eigenschaft für die aktuelle Datei. Wird für Einenschaftsänderungsereignisse verwendet.
-     */
-    public static final String FILE_PROPERTY = "file";
-
-    /**
      * Die Datei, die gerade bearbeitet wird
      * <code>null</code>, wenn es ein neues Bild ist, welches noch nicht gespeichert wurde
      */
@@ -347,9 +342,6 @@ public class MainWindow extends JFrame {
     public void setFile(File file) {
         var oldValue = this.file;
         this.file = file;
-
-        // Benachrichtigen, dass sich die Datei geändert hat
-        firePropertyChange(FILE_PROPERTY, oldValue, file);
 
         updateTitle(); // Titel aktualiesieren
     }
