@@ -27,7 +27,6 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
      * Die Größe der Leinwand
      */
     private final Dimension canvasSize;
-    private final Rectangle previewClip;
 
     /**
      * Erstellt eine neue Leinwand mit einem bestimmten Bild als Inhalt
@@ -41,7 +40,6 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
 
         // Die Größe der Leinwand ermitteln
         canvasSize = new Dimension(image.getWidth(), image.getHeight());
-        previewClip = new Rectangle(canvasSize);
 
         // Darauf achten, wenn das Werkzeug geändert wurde
         mainWindow.addPropertyChangeListener(MainWindow.SELECTED_TOOL_PROPERTY, this);
@@ -110,7 +108,6 @@ public class DrawingCanvas extends JComponent implements PropertyChangeListener 
         // Das Bild zeichnen
         g.drawImage(image, 0, 0, null);
 
-        g.clip(previewClip);
         // Die Vorschau zeichnen
         mainWindow.getSelectedTool().drawPreview(g);
     }
