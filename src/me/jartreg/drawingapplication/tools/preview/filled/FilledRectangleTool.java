@@ -16,7 +16,7 @@ public class FilledRectangleTool extends ColorPreviewTool {
     /**
      * Zeichnet ein gefülltes Rechteck
      *
-     * @param g das {@link Graphics2D}-Objekt
+     * @param g  das {@link Graphics2D}-Objekt
      * @param x1 der x-Wert der Startkoordinate
      * @param y1 der y-Wert der Startkoordinate
      * @param x2 der x-Wert der Endkoordinate

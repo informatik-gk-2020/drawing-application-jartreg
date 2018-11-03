@@ -19,7 +19,7 @@
  *
  * <h3>Einfache Werkzeuge</h3>
  * <p>
- *     Diese Werkzeuge zeichnen direkt auf das Bild und erben von {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool}.
+ * Diese Werkzeuge zeichnen direkt auf das Bild und erben von {@link me.jartreg.drawingapplication.tools.drawing.DrawingTool DrawingTool}.
  * </p>
  * <ul>
  *     <li>{@link me.jartreg.drawingapplication.tools.drawing.PenTool PenTool}</li>
@@ -28,8 +28,8 @@
  *
  * <h3>Werkzeuge mit Vorschau</h3>
  * <p>
- *     Diese Werkzeuge zeichnen geometrische Formen und zeigen deswegen eine Vorschau, bevor sie auf das Bild zeichnen.
- *     Dazu erben sie von {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}.
+ * Diese Werkzeuge zeichnen geometrische Formen und zeigen deswegen eine Vorschau, bevor sie auf das Bild zeichnen.
+ * Dazu erben sie von {@link me.jartreg.drawingapplication.tools.preview.PreviewTool PreviewTool}.
  * </p>
  * <ul>
  *     <li>{@link me.jartreg.drawingapplication.tools.preview.outline.LineTool LineTool}</li>
