@@ -15,6 +15,10 @@ import java.awt.event.InputEvent;
  * Diese Aktion liest ein Bild aus einer Datei und öffnet es in dem aktuellen Fenster oder einem neuen,
  * wenn das aktuelle eine Leinwand enthält
  * </p>
+ *
+ * <p>
+ * Tastenkombination: <kbd>Strg</kbd> + <kbd>O</kbd>
+ * </p>
  */
 public class OpenAction extends AbstractAction {
     /**

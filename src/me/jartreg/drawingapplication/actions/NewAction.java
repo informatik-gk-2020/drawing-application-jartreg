@@ -16,6 +16,10 @@ import java.awt.event.InputEvent;
  * Diese Aktion ertsellt eine neue Leinwand im aktuellen Fenster oder in einem neuen, wenn das aktuelle Fenster bereits
  * eine Leinwand enthält.
  * </p>
+ *
+ * <p>
+ * Tastenkombination: <kbd>Strg</kbd> + <kbd>N</kbd>
+ * </p>
  */
 public class NewAction extends AbstractAction {
     /**

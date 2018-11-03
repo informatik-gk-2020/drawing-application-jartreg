@@ -8,6 +8,10 @@ import java.awt.event.InputEvent;
 
 /**
  * Die "Speichern"-Aktion
+ *
+ * <p>
+ * Tastenkombination: <kbd>Strg</kbd> + <kbd>S</kbd>
+ * </p>
  */
 public class SaveAction extends FileAction {
     /**

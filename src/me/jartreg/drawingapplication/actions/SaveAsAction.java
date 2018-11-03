@@ -8,6 +8,10 @@ import java.awt.event.InputEvent;
 
 /**
  * Die "Speichern unter"-Aktion
+ *
+ * <p>
+ * Tastenkombination: <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>S</kbd>
+ * </p>
  */
 public class SaveAsAction extends FileAction {
     /**

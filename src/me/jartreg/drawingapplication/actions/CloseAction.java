@@ -9,6 +9,10 @@ import java.awt.event.WindowEvent;
 
 /**
  * Die "Schließen"-Aktion, welche das Fenster schließt
+ *
+ * <p>
+ * Tastenkombination: <kbd>Strg</kbd> + <kbd>W</kbd>
+ * </p>
  */
 public class CloseAction extends AbstractAction {
     /**
