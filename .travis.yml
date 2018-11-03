@@ -36,5 +36,6 @@ jobs:
       draft: true
       skip_cleanup: true
       file_glob: true
-      file:
-        - "build/dist/*"
+      file: "build/dist/*"
+      on:
+        tags: true
