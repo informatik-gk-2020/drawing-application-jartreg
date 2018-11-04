@@ -10,7 +10,7 @@
  * Beim Erstellen eines neuen Bildes wird in {@link me.jartreg.drawingapplication.actions.NewAction NewAction} mit
  * {@link me.jartreg.drawingapplication.components.DrawingCanvas#createNew(me.jartreg.drawingapplication.MainWindow, int, int) DrawingCanvas.createNew(...)}
  * ein neues {@link me.jartreg.drawingapplication.components.DrawingCanvas DrawingCanvas} erstellt und mit
- * {@link me.jartreg.drawingapplication.MainWindow#setCanvas(me.jartreg.drawingapplication.components.DrawingCanvas) MainWindow.setDrawingCanvas(...)}
+ * {@link me.jartreg.drawingapplication.MainWindow#setCanvas(me.jartreg.drawingapplication.components.DrawingCanvas) MainWindow.setCanvas(...)}
  * zum Fenster hinzugefügt.
  * </p>
  * <p>
